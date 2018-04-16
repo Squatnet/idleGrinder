@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Wheel.gd" type="Script" id=1]
+[ext_resource path="res://wheel.png" type="Texture" id=2]
+[ext_resource path="res://tooth.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 253.837
+
+[node name="Wheel" type="StaticBody2D"]
+
+position = Vector2( 260.281, 960.451 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 120
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+[node name="Teeth" type="Node2D" parent="." index="2"]
+
+[node name="Tooth" type="StaticBody2D" parent="Teeth" index="0"]
+
+position = Vector2( -8.10196, -276.135 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 120
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Teeth/Tooth" index="0"]
+
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Teeth/Tooth" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 2.83997, -46.7579, 40.6653, 49.4263, -38.2275, 50.507 )
+
+[node name="Tooth2" type="StaticBody2D" parent="Teeth" index="1"]
+
+position = Vector2( 247.854, 140.487 )
+rotation = 2.0944
+input_pickable = false
+collision_layer = 1
+collision_mask = 120
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Teeth/Tooth2" index="0"]
+
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Teeth/Tooth2" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 2.83997, -46.7579, 40.6653, 49.4263, -38.2275, 50.507 )
+
+[node name="Tooth3" type="StaticBody2D" parent="Teeth" index="2"]
+
+position = Vector2( -235.249, 142.703 )
+rotation = 4.18879
+input_pickable = false
+collision_layer = 1
+collision_mask = 120
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Teeth/Tooth3" index="0"]
+
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Teeth/Tooth3" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 2.83997, -46.7579, 40.6653, 49.4263, -38.2275, 50.507 )
+
+

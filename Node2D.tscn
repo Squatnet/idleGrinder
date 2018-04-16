@@ -1,0 +1,245 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Test.gd" type="Script" id=1]
+[ext_resource path="res://Wheel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Spawner.gd" type="Script" id=3]
+[ext_resource path="res://KillArea.gd" type="Script" id=4]
+[ext_resource path="res://Ui.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32.966, 22.297 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.4904, 3.01468 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 46.4801, 93.6698 )
+
+[node name="Node2D" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -0.769444, -0.58379, 960.155 ],
+"_edit_vertical_guides_": [ 540.518, 260.318, 820.657 ]
+}
+
+[node name="Wheel" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="Wheel2" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 820.281, 960.451 )
+scale = Vector2( -1, 1 )
+collision_mask = 3
+
+[node name="SpawnArea" type="Node2D" parent="." index="2"]
+
+position = Vector2( 32.4009, -32.0056 )
+script = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="SpawnArea" index="0"]
+
+position = Vector2( 511.287, -135.668 )
+scale = Vector2( 17.6189, 4.48373 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea/Area2D" index="0"]
+
+position = Vector2( -0.275337, -7.02238 )
+shape = SubResource( 1 )
+
+[node name="KillArea" type="Node2D" parent="." index="3"]
+
+position = Vector2( 17.2217, 1957.23 )
+scale = Vector2( 1, 0.905317 )
+script = ExtResource( 4 )
+
+[node name="Conveyor" type="Area2D" parent="KillArea" index="0"]
+
+position = Vector2( 517.439, -159.597 )
+scale = Vector2( 17.6189, 5.15156 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 64
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea/Conveyor" index="0"]
+
+position = Vector2( -0.590391, -35.0803 )
+scale = Vector2( 1, 1.53904 )
+shape = SubResource( 2 )
+
+[node name="Bank" type="Area2D" parent="KillArea" index="1"]
+
+position = Vector2( 1118.16, -436.9 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea/Bank" index="0"]
+
+position = Vector2( -0.975464, 6.46399 )
+shape = SubResource( 3 )
+
+[node name="Walls" type="StaticBody2D" parent="." index="4"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -0.402039, -467.62, 7.36761, 971.33, -11.4426, 1665.75, 1105.04, 1665.75, 1215.62, 1665.38, 1202.06, 1406.12, 1079.96, 1386.52, 1074.56, 975.852, 1105.04, 117.744, 1106.4, -1543, 713.863, -1694.28, 543.865, -1756.09, 553.138, -1805.55, 1152.77, -1703.73, 1298.53, 1626.19, 1197.51, 1943.16, -179.257, 1939.73, -158.709, 42.3983, -123.943, -1420.73, -9.40039, -1799.37, 346.049, -1836.46, 550.047, -1805.55, 540.774, -1749.91, 321.323, -1768.46, 43.1444, -1663.37, 15.3265, -1502.64 )
+
+[node name="LBlkNde" type="Node2D" parent="." index="5"]
+
+[node name="MBlkNde" type="Node2D" parent="." index="6"]
+
+[node name="SBlkNde" type="Node2D" parent="." index="7"]
+
+[node name="CoinsNode" type="Node2D" parent="." index="8"]
+
+[node name="LineEdit" type="LineEdit" parent="." index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 826.0
+margin_top = 70.0
+margin_right = 884.0
+margin_bottom = 94.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Button" type="Button" parent="." index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 985.0
+margin_top = 83.0
+margin_right = 1050.0
+margin_bottom = 103.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Set Rpm"
+flat = false
+align = 1
+
+[node name="Ui" type="Control" parent="." index="11"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -1.0
+margin_top = 1405.0
+margin_right = 1081.0
+margin_bottom = 1843.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="Ui" index="0"]
+
+process_mode = 0
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="CashLbl" type="Label" parent="Ui" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 443.0
+margin_top = 43.0
+margin_right = 483.0
+margin_bottom = 57.0
+rect_scale = Vector2( 5, 5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[connection signal="body_exited" from="SpawnArea/Area2D" to="SpawnArea" method="_on_Area2D_body_exited"]
+
+[connection signal="body_entered" from="KillArea/Conveyor" to="KillArea" method="_on_Area2D_body_entered"]
+
+[connection signal="body_entered" from="KillArea/Bank" to="KillArea" method="_on_Bank_body_entered"]
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+
+[connection signal="timeout" from="Ui/Timer" to="Ui" method="_on_Timer_timeout"]
+
+
+[editable path="Wheel"]
+[editable path="Wheel2"]
