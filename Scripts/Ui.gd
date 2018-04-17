@@ -15,3 +15,4 @@ func _ready():
 
 func _on_Timer_timeout():
 	$CashLbl.set_text("$"+str(GS.getCash()))
+	$CpSlbd.set_text(str(GS.getCoinsPerSec())+"/sec")

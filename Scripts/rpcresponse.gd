@@ -9,7 +9,7 @@ var _body = ""
 var _body_length = 0
 var _headers
 
-func hasError():
+func isError():
 	return _is_error
 
 func getBody():

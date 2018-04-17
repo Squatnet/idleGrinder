@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Test.gd" type="Script" id=1]
-[ext_resource path="res://Wheel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Spawner.gd" type="Script" id=3]
-[ext_resource path="res://KillArea.gd" type="Script" id=4]
-[ext_resource path="res://Ui.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Test.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Wheel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Spawner.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/KillArea.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Ui.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/UI/Upgrades/RPM.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -19,9 +20,9 @@ extents = Vector2( 31.4904, 3.01468 )
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 46.4801, 93.6698 )
+extents = Vector2( 46.4801, 140.708 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -103,8 +104,15 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea/Bank" index="0"]
 
-position = Vector2( -0.975464, 6.46399 )
+position = Vector2( -3.68298, -32.4146 )
 shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="KillArea/Bank" index="1"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = true
 
 [node name="Walls" type="StaticBody2D" parent="." index="4"]
 
@@ -121,66 +129,23 @@ bounce = 0.0
 build_mode = 0
 polygon = PoolVector2Array( -0.402039, -467.62, 7.36761, 971.33, -11.4426, 1665.75, 1105.04, 1665.75, 1215.62, 1665.38, 1202.06, 1406.12, 1079.96, 1386.52, 1074.56, 975.852, 1105.04, 117.744, 1106.4, -1543, 713.863, -1694.28, 543.865, -1756.09, 553.138, -1805.55, 1152.77, -1703.73, 1298.53, 1626.19, 1197.51, 1943.16, -179.257, 1939.73, -158.709, 42.3983, -123.943, -1420.73, -9.40039, -1799.37, 346.049, -1836.46, 550.047, -1805.55, 540.774, -1749.91, 321.323, -1768.46, 43.1444, -1663.37, 15.3265, -1502.64 )
 
-[node name="LBlkNde" type="Node2D" parent="." index="5"]
+[node name="LBlkNde" type="Node2D" parent="." index="5" groups=[
+"Persist",
+]]
 
-[node name="MBlkNde" type="Node2D" parent="." index="6"]
+[node name="MBlkNde" type="Node2D" parent="." index="6" groups=[
+"Persist",
+]]
 
-[node name="SBlkNde" type="Node2D" parent="." index="7"]
+[node name="SBlkNde" type="Node2D" parent="." index="7" groups=[
+"Persist",
+]]
 
-[node name="CoinsNode" type="Node2D" parent="." index="8"]
+[node name="CoinsNode" type="Node2D" parent="." index="8" groups=[
+"Persist",
+]]
 
-[node name="LineEdit" type="LineEdit" parent="." index="9"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 826.0
-margin_top = 70.0
-margin_right = 884.0
-margin_bottom = 94.0
-rect_scale = Vector2( 2, 2 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 1
-size_flags_horizontal = 1
-size_flags_vertical = 1
-focus_mode = 2
-context_menu_enabled = true
-placeholder_alpha = 0.6
-caret_blink = false
-caret_blink_speed = 0.65
-caret_position = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="Button" type="Button" parent="." index="10"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 985.0
-margin_top = 83.0
-margin_right = 1050.0
-margin_bottom = 103.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Set Rpm"
-flat = false
-align = 1
-
-[node name="Ui" type="Control" parent="." index="11"]
+[node name="Ui" type="Control" parent="." index="9"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -211,9 +176,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 443.0
+margin_left = 181.0
 margin_top = 43.0
-margin_right = 483.0
+margin_right = 325.0
 margin_bottom = 57.0
 rect_scale = Vector2( 5, 5 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -222,6 +187,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+text = "$10110101101000101"
 align = 1
 valign = 1
 uppercase = true
@@ -230,13 +196,63 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
+[node name="CpSlbd" type="Label" parent="Ui" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 325.0
+margin_top = 115.0
+margin_right = 469.0
+margin_bottom = 129.0
+rect_scale = Vector2( 3, 3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "$10110101101000101"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="ScrollContainer" type="Panel" parent="Ui" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 4.0
+margin_top = 269.0
+margin_right = 1078.0
+margin_bottom = 513.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Upgrade" parent="Ui/ScrollContainer" index="2" instance=ExtResource( 6 )]
+
+margin_left = 8.0
+margin_top = 4.0
+margin_right = 206.0
+margin_bottom = 222.0
+
 [connection signal="body_exited" from="SpawnArea/Area2D" to="SpawnArea" method="_on_Area2D_body_exited"]
 
 [connection signal="body_entered" from="KillArea/Conveyor" to="KillArea" method="_on_Area2D_body_entered"]
 
 [connection signal="body_entered" from="KillArea/Bank" to="KillArea" method="_on_Bank_body_entered"]
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="timeout" from="KillArea/Bank/Timer" to="KillArea" method="_on_Timer_timeout"]
 
 [connection signal="timeout" from="Ui/Timer" to="Ui" method="_on_Timer_timeout"]
 

@@ -10,9 +10,11 @@ config_version=3
 
 [application]
 
-config/name="New Game Project"
-run/main_scene="res://Node2D.tscn"
+config/name="sdf"
+run/main_scene="res://Scenes/Menu.tscn"
+config/use_custom_user_dir=true
 config/icon="res://icon.png"
+config/quit_on_go_back=false
 
 [autoload]
 

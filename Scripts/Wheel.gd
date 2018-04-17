@@ -16,6 +16,7 @@ func getRpm():
 func setRpm(val):
 	rpm = val
 func _process(delta):
+	setRpm(GS.getWheelRpm())
 	var degPerSec = (rpm*6.0) # 
 	var actRot = (degPerSec*delta)
 	if side == "L":

@@ -3,7 +3,7 @@ extends Node2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-
+var count = 0
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -26,3 +26,11 @@ func _on_Bank_body_entered(body):
 	print("killed coin")
 	GS.addCash(GS.getCoinValue())
 	body.queue_free()
+	count += GS.getCoinValue()
+
+
+func _on_Timer_timeout():
+	count /= 5.0
+	GS.setCoinsPerSec(float(count))
+	print(str(count))
+	count = 0

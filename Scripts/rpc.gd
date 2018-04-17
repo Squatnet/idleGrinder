@@ -1,22 +1,8 @@
-## rpc.gd
-# A blocking RPC channel using HTTPClient
-# @author bibby<bibby@bbby.org>
-#
-## publics
-# new( host, port )
-#
-# resetHeaders()
-# setHeaders( dict )
-# setHeader( name, val)
-#
-# get( url )
-# post( url, body )
-# put( url, body )
-# delete( url )
+extends Node
 
 var RPCResponse = preload("rpcresponse.gd")
 
-var _host = "localhost" # override with new()
+var _host = "http://squatnet.co.uk" # override with new()
 var _port = 80
 var _error = ""
 var _headers = {}
@@ -24,10 +10,10 @@ var _headers = {}
 var client = HTTPClient.new()
 
 # override default new()
-func _init(host = "localhost", port = "80"):
+func _init(host = "http://squatnet.co.uk", port = 80):
 	_host = host
 	_port = port
-	_headers = {"User-Agent": "Godot Game Engine"}
+	_headers = {"User-Agent": "IdleG"}
 
 func get(url):
 	return _request( HTTPClient.METHOD_GET, url, "" )
@@ -54,10 +40,10 @@ func setHeader(headerName, value):
 
 func _request(method, url, body):
 	var res = _connect()
-	if( res.hasError() ):
+	if( res.isError() ):
 		return res
 	else:
-		var headers = StringArray()
+		var headers = PoolStringArray()  #-- NOTE: Automatically converted by Godot 2 to 3 converter, please review
 		for h in _headers:
 			headers.push_back(h + ": " + _headers[h])
 		client.request( method, url, headers, body)
@@ -68,7 +54,7 @@ func _request(method, url, body):
 	return res
 
 func _connect():
-	client.connect(_host, _port)
+	client.connect_to_host(_host, _port)  #-- NOTE: Automatically converted by Godot 2 to 3 converter, please review
 	return _poll()
 
 func _poll():
@@ -79,7 +65,6 @@ func _poll():
 		current_status = client.get_status()
 		if( status != current_status ):
 			status = current_status
-			print("HTTPClient entered status ", status)
 			if( status == HTTPClient.STATUS_RESOLVING ):
 				continue
 			if( status == HTTPClient.STATUS_REQUESTING ):
@@ -103,7 +88,7 @@ func _parseBody():
 	var body = client.read_response_body_chunk().get_string_from_utf8()
 	var response = _respond(body)
 	if( response.getResponseCode() >= 400 ):
-		return response.setIsError(true)
+		return
 		
 	return response
 	
@@ -117,5 +102,5 @@ func _respond(body):
 
 func _errorResponse(body):
 	var response = _respond(body)
-	response.setIsError( true )
 	return response
+

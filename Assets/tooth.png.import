@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/coin.png-7e710de472b75b3653c3283ef5153eb4.stex"
+path="res://.import/tooth.png-8b6b0c329603ac6c2658685773a96bef.stex"
 
 [deps]
 
-source_file="res://coin.png"
-source_md5="55bda3548115374266429b7cec37c732"
+source_file="res://Assets/tooth.png"
+source_md5="8be3bf288409001610627f3986336ed3"
 
-dest_files=[ "res://.import/coin.png-7e710de472b75b3653c3283ef5153eb4.stex" ]
-dest_md5="f37577ba40d715d8df591478e7f0d91a"
+dest_files=[ "res://.import/tooth.png-8b6b0c329603ac6c2658685773a96bef.stex" ]
+dest_md5="6d88cd0ea581514bd64cad175b7d13af"
 
 [params]
 

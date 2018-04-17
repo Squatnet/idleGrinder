@@ -4,19 +4,21 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 var RPC = preload("rpc.gd")
-var lrgBlk = preload("res://LgBlk.tscn")
-var medBlk = preload("res://MdBlk.tscn")
-var SmlBlk = preload("res://SmBlk.tscn")
-var Coin = preload("res://Coin.tscn")
+var lrgBlk = preload("res://Scenes/LgBlk.tscn")
+var medBlk = preload("res://Scenes/MdBlk.tscn")
+var SmlBlk = preload("res://Scenes/SmBlk.tscn")
+var Coin = preload("res://Scenes/Coin.tscn")
 var www
 
 
 func _ready():
 	www = RPC.new()
 	$Wheel2.setSide("R")
-	var wheelRpm = get_node("Wheel").getRpm()
-	get_node("LineEdit").set_text(str(wheelRpm))
 	spawnLgBlk()
+	spawnMedBlk(Vector2(rand_range(200,700),-200))
+	spawnSmBlk(Vector2(rand_range(170,800),0))
+	spawnSmBlk(Vector2(rand_range(170,800),-20))
+	GS.resolveIdle()
 func _process(delta):
 	if $LBlkNde.get_child_count() < 1:
 		spawnLgBlk()
@@ -35,6 +37,7 @@ func spawnLgBlk():
 		newBlk.scale = Vector2(scl,scl)
 		$LBlkNde.add_child(newBlk)
 		print("spawned LBlk with scale "+str(scl))
+		spawnSmBlk(Vector2(rand_range(170,800),-20))
 	else: 
 		print("Too many lBlk")
 func spawnMedBlk(pos):
