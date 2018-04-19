@@ -16,5 +16,5 @@ func _ready():
 
 
 func _on_Area2D_body_exited(body):
-	print(str(body.get_name())+ " left spawn")
+	#print(str(body.get_name())+ " left spawn")
 	get_parent().spawnLgBlk()

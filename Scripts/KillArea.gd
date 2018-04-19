@@ -16,21 +16,22 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	print(body.get_name())
+	#print(body.get_name())
 	body.set_axis_velocity(Vector2(200,0))
 	body.setFloored(true)
-	print("COINS = "+str(get_parent().get_node("CoinsNode").get_child_count()))
+	#print("COINS = "+str(get_parent().get_node("CoinsNode").get_child_count()))
 
 
 func _on_Bank_body_entered(body):
-	print("killed coin")
+	#print("killed coin")
 	GS.addCash(GS.getCoinValue())
 	body.queue_free()
-	count += GS.getCoinValue()
+	count += float(GS.getCoinValue())
 
 
 func _on_Timer_timeout():
-	count /= 5.0
+	count /= 10.0
 	GS.setCoinsPerSec(float(count))
-	print(str(count))
+	GS.saveCoinsPerSec()
+	print("the count is"+str(count))
 	count = 0

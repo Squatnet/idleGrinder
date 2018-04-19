@@ -20,3 +20,7 @@ func _ready():
 func _on_PlayBtn_pressed():
 	
 	get_tree().change_scene("res://Scenes/Node2D.tscn")
+
+
+func _on_delete_pressed():
+	GS.eraseSaveGame()

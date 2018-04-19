@@ -28,8 +28,7 @@ func die():
 	get_parent().get_parent().breakBlock(type,position)
 	queue_free()
 
-func _on_RigidBody2D_body_shape_entered(body_id, body, body_shape, local_shape):
-	print("id - "+str(body_id)+" shape - "+str(body_shape)+" lSh - "+(str(local_shape)))
+
 
 
 func _on_RigidBody2D_body_entered(body):

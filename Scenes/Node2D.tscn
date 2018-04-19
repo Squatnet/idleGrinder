@@ -22,7 +22,7 @@ extents = Vector2( 31.4904, 3.01468 )
 custom_solver_bias = 0.0
 extents = Vector2( 46.4801, 140.708 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -34,7 +34,7 @@ __meta__ = {
 
 [node name="Wheel2" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 820.281, 960.451 )
+position = Vector2( 822.465, 960.179 )
 scale = Vector2( -1, 1 )
 collision_mask = 3
 
@@ -110,7 +110,7 @@ shape = SubResource( 3 )
 [node name="Timer" type="Timer" parent="KillArea/Bank" index="1"]
 
 process_mode = 1
-wait_time = 5.0
+wait_time = 10.0
 one_shot = false
 autostart = true
 
@@ -152,7 +152,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -1.0
-margin_top = 1405.0
+margin_top = 1120.0
 margin_right = 1081.0
 margin_bottom = 1843.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -229,7 +229,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 4.0
-margin_top = 269.0
+margin_top = 200.0
 margin_right = 1078.0
 margin_bottom = 513.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -239,12 +239,107 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="Upgrade" parent="Ui/ScrollContainer" index="2" instance=ExtResource( 6 )]
+[node name="Upgrade" parent="Ui/ScrollContainer" index="0" instance=ExtResource( 6 )]
 
 margin_left = 8.0
 margin_top = 4.0
 margin_right = 206.0
 margin_bottom = 222.0
+
+[node name="PopupPanel" type="PopupPanel" parent="Ui" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 201.0
+margin_top = -725.0
+margin_right = 881.0
+margin_bottom = -165.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+
+[node name="Label" type="Label" parent="Ui/PopupPanel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 80.0
+margin_top = 40.0
+margin_right = 184.0
+margin_bottom = 54.0
+rect_scale = Vector2( 5, 5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Idle Earnings"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="writeME" type="Label" parent="Ui/PopupPanel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 40.0
+margin_top = 160.0
+margin_right = 211.0
+margin_bottom = 251.0
+rect_scale = Vector2( 3.5, 3.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Idle Earnings"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="writeME2" type="Label" parent="Ui/PopupPanel" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 40.0
+margin_top = 480.0
+margin_right = 240.0
+margin_bottom = 494.0
+rect_scale = Vector2( 3, 3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Click Anywhere To Close"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
 
 [connection signal="body_exited" from="SpawnArea/Area2D" to="SpawnArea" method="_on_Area2D_body_exited"]
 
