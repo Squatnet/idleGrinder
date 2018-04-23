@@ -12,10 +12,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 357.0
-margin_top = 963.0
-margin_right = 437.0
-margin_bottom = 983.0
+margin_left = 351.0
+margin_top = 626.0
+margin_right = 431.0
+margin_bottom = 646.0
 rect_scale = Vector2( 4.2, 4 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -39,10 +39,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 363.0
-margin_top = 1080.0
-margin_right = 443.0
-margin_bottom = 1100.0
+margin_left = 360.0
+margin_top = 728.0
+margin_right = 440.0
+margin_bottom = 748.0
 rect_scale = Vector2( 4.2, 4 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -58,153 +58,6 @@ group = null
 text = "Delete"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
-
-[node name="SaveTime" type="Label" parent="." index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 245.0
-margin_top = 152.0
-margin_right = 342.0
-margin_bottom = 171.0
-rect_scale = Vector2( 6, 6 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
-
-[node name="Label2" type="Label" parent="." index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 254.0
-margin_top = 53.0
-margin_right = 351.0
-margin_bottom = 73.0
-rect_scale = Vector2( 6, 6 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Old Time"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
-
-[node name="Label4" type="Label" parent="." index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 103.0
-margin_top = 319.0
-margin_right = 248.0
-margin_bottom = 339.0
-rect_scale = Vector2( 6, 6 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "CurrentTimeStamp"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
-
-[node name="Label5" type="Label" parent="." index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 245.0
-margin_top = 591.0
-margin_right = 342.0
-margin_bottom = 611.0
-rect_scale = Vector2( 6, 6 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Difference"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
-
-[node name="CurrTime" type="Label" parent="." index="6"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 245.0
-margin_top = 432.0
-margin_right = 342.0
-margin_bottom = 448.0
-rect_scale = Vector2( 6, 6 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
-
-[node name="TimeDiff" type="Label" parent="." index="7"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 242.0
-margin_top = 726.0
-margin_right = 339.0
-margin_bottom = 742.0
-rect_scale = Vector2( 6, 6 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
 [connection signal="pressed" from="PlayBtn" to="." method="_on_PlayBtn_pressed"]

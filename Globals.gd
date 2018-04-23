@@ -21,10 +21,10 @@ var starterSave = {
 					"LastSavedTime":0,
 					"LastCoinsPerSec":0,
 					"BlockStates":{
-								"Lblks":[],
-								"Mblks":[],
-								"Sblks":[],
-								"Cblks":[],
+								"Lblks":{},
+								"Mblks":{},
+								"Sblks":{},
+								"Cblks":{},
 								}
 					}
 
@@ -40,19 +40,7 @@ func _ready():
 		print("got OS Key")
 		get_tree().set_auto_accept_quit(false)
 	LoadGame()
-func _notification(what):
-	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
-		setSaveTime()
-		saveCoinsPerSec()
-		 # default behavior
-	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
-		setSaveTime()
-		saveCoinsPerSec()
-		get_tree().quit()
-	if isPhone:
-		if what == MainLoop.NOTIFICATION_WM_FOCUS_OUT:
-			setSaveTime()
-			saveCoinsPerSec()
+
 ## LoadSave
 func LoadGame():
 	f = File.new()
@@ -61,6 +49,7 @@ func LoadGame():
 		if f.is_open():
 			currentSaveData = f.get_var()
 			print("Save Game opened")
+			print(str(currentSaveData))
 			isNewGame = false
 			f.close()
 			return currentSaveData
@@ -89,21 +78,39 @@ func eraseSaveGame():
 	print("Save fileremoved")
 	LoadGame()
 func saveBlock(type,pos,rot):
-	if type is "L":
-		currentSaveData.BlockStates.Lblks.push_back({"pos":pos,"rot":rot})
-	elif type is "M":
-		currentSaveData.BlockStates.Mblks.push_back({"pos":pos,"rot":rot})
-	elif type is "S":
-		currentSaveData.BlockStates.Sblks.push_back({"pos":pos,"rot":rot})
-	elif type is "C":
-		currentSaveData.BlockStates.Cblks.push_back({"pos":pos,"rot":rot})
+	#print("globalsSavingBlock"+type+" "+str(pos)+" "+str(rot))
+	if type == "L":
+		#print(str(currentSaveData.BlockStates.Lblks))
+		var size = currentSaveData.BlockStates.Lblks.size()
+		currentSaveData.BlockStates.Lblks[str(size+1)] = {"pos":pos,"rot":rot}
+		#print(str(currentSaveData.BlockStates.Lblks))
+	elif type == "M":
+		var size = currentSaveData.BlockStates.Mblks.size()
+		currentSaveData.BlockStates.Mblks[size+1] = {"pos":pos,"rot":rot}
+	elif type == "S":
+		var size = currentSaveData.BlockStates.Sblks.size()
+		currentSaveData.BlockStates.Sblks[size+1] = {"pos":pos,"rot":rot}
+	elif type == "C":
+		var size = currentSaveData.BlockStates.Cblks.size()
+		currentSaveData.BlockStates.Cblks[size+1] = {"pos":pos,"rot":rot}
+	saveActiveGame()
 func returnBlocks(type,clear):
-	var tmp = currentSaveData.BlockStates[type+"blks"]
+	if type == "L":
+			#print("L"+str(currentSaveData.BlockStates.Lblks))
+			return currentSaveData.BlockStates.Lblks
+	elif type == "M":
+			#print("M")
+			return currentSaveData.BlockStates.Mblks
+	elif type == "S":
+			#print("S")
+			return currentSaveData.BlockStates.Sblks
+	if type == "C":
+			#print("C")
+			return currentSaveData.BlockStates.Cblks
 	if clear:
 		currentSaveData.BlockStates[type+"blks"].clear()
 	else:
 		pass
-	return tmp
 func checkBlocks():
 	var c = 0
 	c += currentSaveData.BlockStates.Lblks.size()
@@ -112,14 +119,17 @@ func checkBlocks():
 	c += currentSaveData.BlockStates.Cblks.size()
 	if c == 0:
 		return false
+		print("NO BLOCKS")
 	else:
 		return true
+		print("Gonna Load Blocks")
 func makeNewSave():
 	currentSaveData = starterSave
 	setSaveTime()
 func setSaveTime():
 	currentSaveData["LastSavedTime"] = getTime()
 	saveActiveGame()
+	print("TimeSaved")
 func getSaveTime():
 	return currentSaveData.LastSavedTime
 func getTime():
