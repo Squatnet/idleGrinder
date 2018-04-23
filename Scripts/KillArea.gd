@@ -1,7 +1,5 @@
 extends Node2D
-
-# class member variables go here, for example:
-# var a = 2
+var upg = preload("res://Scripts/UpgradeProgressions.gd").new()
 # var b = "textvar"
 var count = 0
 func _ready():
@@ -24,14 +22,14 @@ func _on_Area2D_body_entered(body):
 
 func _on_Bank_body_entered(body):
 	#print("killed coin")
-	GS.addCash(GS.getCoinValue())
+	GS.addCash(upg.getBuff("CoinValues",GS.getCoinValue()))
 	body.queue_free()
-	count += float(GS.getCoinValue())
+	count += float(upg.getBuff("CoinValues",GS.getCoinValue()))
 
 
 func _on_Timer_timeout():
 	count /= 10.0
 	GS.setCoinsPerSec(float(count))
 	GS.saveCoinsPerSec()
-	print("the count is"+str(count))
+	#print("the count is"+str(count))
 	count = 0

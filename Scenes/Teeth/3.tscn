@@ -1,0 +1,96 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/tooth.png" type="Texture" id=1]
+
+[node name="Teeth" type="Node2D"]
+
+scale = Vector2( 1.01, 1.01 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tooth" type="StaticBody2D" parent="." index="0"]
+
+position = Vector2( -4.52774, -293.113 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 120
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tooth" index="0" groups=[
+"Sp",
+]]
+
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tooth" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 2.83997, -46.7579, 40.6653, 49.4263, -38.2275, 50.507 )
+
+[node name="Tooth2" type="StaticBody2D" parent="." index="1"]
+
+position = Vector2( 250.535, 150.316 )
+rotation = 2.0944
+input_pickable = false
+collision_layer = 1
+collision_mask = 120
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tooth2" index="0" groups=[
+"Sp",
+]]
+
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tooth2" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 2.83997, -46.7579, 40.6653, 49.4263, -38.2275, 50.507 )
+
+[node name="Tooth3" type="StaticBody2D" parent="." index="2"]
+
+position = Vector2( -257.588, 128.406 )
+rotation = 4.18879
+input_pickable = false
+collision_layer = 1
+collision_mask = 120
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tooth3" index="0" groups=[
+"Sp",
+]]
+
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tooth3" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 2.83997, -46.7579, 40.6653, 49.4263, -38.2275, 50.507 )
+
+

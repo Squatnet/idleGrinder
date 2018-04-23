@@ -30,6 +30,10 @@ func _notification(what):
 func _ready():
 	if GS.CheckEmptyGame():
 		GS.makeNewSave()
+	if OS.get_name() == "Android":
+		if GS.getAds() == true:
+			print("YAY")
+			GS.fb.show_banner_ad(true)
 	www = RPC.new()
 	$Wheel2.setSide("R")
 	$Ui/PopupPanel/writeME.set_text(GS.resolveIdle())
@@ -42,7 +46,7 @@ func _ready():
 		var C = GS.returnBlocks("C",true)
 		for key in L:
 			respawnLgBlk(L[key].pos,L[key].rot)
-			print("reSpawning Lblk")
+			#print("reSpawning Lblk")
 		for key in M:
 			respawnMdBlk(M[key].pos,M[key].rot)
 		for key in S:
@@ -66,7 +70,8 @@ func spawnLgBlk():
 		$LBlkNde.add_child(newBlk)
 		#print("spawned LBlk with scale "+str(scl))
 	else: 
-		print("Too many lBlk")
+		#print("Too many lBlk")
+		pass
 func respawnLgBlk(pos,rot):
 	#print("currentLblk = "+str(get_node("LBlkNde").get_child_count()))
 	var newBlk = lrgBlk.instance()
@@ -110,6 +115,8 @@ func respawnSmBlk(pos,rot):
 func spawnCoin(pos):
 	var newCoin = Coin.instance()
 	newCoin.position = pos
+	if $CoinsNode.get_child_count() > 10:
+		newCoin.position.y = 1200
 	$CoinsNode.add_child(newCoin)
 	#print("Added Coin")
 func respawnCoin(pos,rot):
@@ -119,14 +126,14 @@ func respawnCoin(pos,rot):
 	newBlk.rotation = rot
 	$CoinsNode.add_child(newBlk)
 func breakBlock(type,pos):
-	print(type)
+	#print(type)
 	if type == "L":
 		spawnMedBlk(pos)
 	elif type == "M":
 		spawnSmBlk(pos)
 	elif type == "S":
 		spawnCoin(pos)
-	print(pos)
+	#print(pos)
 func saveAllBlks():
 	for i in $LBlkNde.get_children():
 		i.save()
@@ -136,4 +143,6 @@ func saveAllBlks():
 		i.save()
 	for i in $CoinsNode.get_children():
 		i.save()
+	if OS.get_name() == "Android":
+		GS.fb.notifyInMins("Idle Timeout Complete",1)
 

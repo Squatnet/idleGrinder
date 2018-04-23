@@ -1,23 +1,26 @@
 extends Node
 var save_file = "user://saveFile.xws"
 var RPC = preload("res://Scripts/rpc.gd")
+var upg = preload("res://Scripts/UpgradeProgressions.gd").new()
+
 var currentSaveData = {} ## EMPTY DICT
 var saveEncyptionKey = ""
 var isPhone
 var isNewGame = true
 var f
 var coinsPerSec = 0.0
+var fb = Engine.get_singleton("FireBase")
 
 ## StartingSave
 
-var starterSave = {
+var starterSave = { "Prestige":0,
 					"Cash":0,
-					"WheelRpm":2,
-					"CoinValue":1,
-					"WheelForce":1,
-					"TeethNum":3,
-					"IdleTimeOut":900,
-					"IdlePercentage":0.1,
+					"WheelRpm":0,
+					"CoinValue":0,
+					"WheelForce":0,
+					"TeethNum":0,
+					"IdleTimeOut":0,
+					"IdlePercentage":0,
 					"LastSavedTime":0,
 					"LastCoinsPerSec":0,
 					"BlockStates":{
@@ -25,7 +28,8 @@ var starterSave = {
 								"Mblks":{},
 								"Sblks":{},
 								"Cblks":{},
-								}
+								},
+					"ads":true,
 					}
 
 func _ready():
@@ -39,6 +43,12 @@ func _ready():
 		isPhone = true
 		print("got OS Key")
 		get_tree().set_auto_accept_quit(false)
+	if OS.get_name() == "Android":
+		print("Init FireBase")
+		fb.initWithFile("res://godot-firebase-config.json", get_instance_id());
+		#fb.authConfig("'Google':true,'Facebook':false")
+	else:
+		print("not Android, Firebase Disabled")
 	LoadGame()
 
 ## LoadSave
@@ -77,6 +87,10 @@ func eraseSaveGame():
 	currentSaveData = {}
 	print("Save fileremoved")
 	LoadGame()
+func setAds(val):
+	currentSaveData["ads"] = val
+func getAds():
+	return currentSaveData.ads
 func saveBlock(type,pos,rot):
 	#print("globalsSavingBlock"+type+" "+str(pos)+" "+str(rot))
 	if type == "L":
@@ -111,6 +125,7 @@ func returnBlocks(type,clear):
 		currentSaveData.BlockStates[type+"blks"].clear()
 	else:
 		pass
+
 func checkBlocks():
 	var c = 0
 	c += currentSaveData.BlockStates.Lblks.size()
@@ -137,13 +152,14 @@ func getTime():
 	var response = www.get("/api/idleG/time.php")
 	if !response:
 		return 0
+		print("Time check failed failed failed")
 	else:
 		return int(response.getBody())
 func resolveIdle():
 	var diff = (getTime() - getSaveTime())
-	if diff > getMaxIdleTime():
-		diff = getMaxIdleTime()
-	var coins = diff*getCoinValue()
+	if diff > upg.getBuff("TimeOut",getMaxIdleTime()):
+		diff = upg.getBuff("TimeOut",getMaxIdleTime())
+	var coins = diff*upg.getBuff("CoinValues",getCoinValue())
 	print(coins)
 	var profit = (coins*getSavedCoinsPerSec())
 	print(profit)
@@ -161,14 +177,18 @@ func resolveIdle():
 
 func setCoinsPerSec(val):
 	coinsPerSec = float(val)
-	print("CPS set to "+str(val))
+	#print("CPS set to "+str(val))
 func getCoinsPerSec():
 	return float(coinsPerSec)
 func saveCoinsPerSec():
 	currentSaveData["LastCoinsPerSec"] = float(coinsPerSec)
-	print("CPS saved as "+str(coinsPerSec))
+	#print("CPS saved as "+str(coinsPerSec))
 func getSavedCoinsPerSec():
 	return currentSaveData.LastCoinsPerSec
+func getPrestige():
+	return currentSaveData.Prestige
+func setPrestige():
+	currentSaveData.prestige += 1
 func setMaxIdleTime(secs):
 	currentSaveData["IdleTimeOut"] = secs
 func getMaxIdleTime():
@@ -182,7 +202,7 @@ func addCash(val):
 func getCash():
 	return currentSaveData.Cash
 func remCash(val):
-	currentSaveData["cash"] -= int(val)
+	currentSaveData["Cash"] -= int(val)
 func setWheelRpm(val):
 	currentSaveData["WheelRpm"] = val
 func getWheelRpm():
@@ -199,3 +219,49 @@ func setTeethNum(val):
 	currentSaveData["TeethNum"] = val
 func getTeethNum():
 	return currentSaveData.TeethNum
+func calcPrestigePrice():
+	var lv = getPrestige()
+	var init = (1000*1000)
+	for i in lv:
+		init *1.213423
+	return init
+func getupgradeLvl(type):
+	var response
+	if type =="RPM":
+		response = getWheelRpm()
+	elif type == "ToothForce":
+		response = getWheelForce()
+	elif type == "ToothNumber":
+		response = getTeethNum()
+	elif type == "CoinValues":
+		response = getCoinValue()
+	elif type == "TimeOut":
+		response = getMaxIdleTime()
+	elif type == "IdlePercentage":
+		response = getIdlePercent()
+	return response
+var prestigeNames = ["Wood","Stone","Iron","Steel","Diamond"]
+func getPrestigeName(val):
+	return prestigeNames[val]
+func setupgradeLvl(type):
+	var response
+	if type =="RPM":
+		response = getWheelRpm()
+		setWheelRpm(response+1)
+	elif type == "ToothForce":
+		response = getWheelForce()
+		setWheelForce(response+1)
+	elif type == "ToothNumber":
+		response = getTeethNum()
+		setTeethNum(response+1)
+	elif type == "CoinValues":
+		response = getCoinValue()
+		setCoinValue(response+1)
+	elif type == "TimeOut":
+		response = getMaxIdleTime()
+		setMaxIdleTime(response+1)
+	elif type == "IdlePercentage":
+		response = getIdlePercent()
+		setIdlePercent(response+1)
+	saveActiveGame()
+	

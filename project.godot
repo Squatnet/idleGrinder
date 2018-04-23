@@ -41,3 +41,7 @@ window/stretch/aspect="keep"
 [rendering]
 
 environment/default_environment="res://default_env.tres"
+
+[android]
+
+modules="org/godotengine/godot/FireBase,org/godotengine/godot/SQLBridge"

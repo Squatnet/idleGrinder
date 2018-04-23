@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scripts/Upgrade.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Prestige.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
-[node name="Upgrade" type="Panel"]
+[node name="Prestige" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0

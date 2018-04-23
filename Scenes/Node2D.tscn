@@ -5,7 +5,7 @@
 [ext_resource path="res://Scripts/Spawner.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/KillArea.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Ui.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/UI/Upgrades/Upgrade.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Tmh/StBRd.tres" type="StyleBox" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -20,23 +20,25 @@ extents = Vector2( 32.3744, 3.01468 )
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 46.4801, 441.834 )
+extents = Vector2( 80, 397.633 )
 
 [node name="Node2D" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [ -0.769444, -0.58379, 960.155 ],
-"_edit_vertical_guides_": [ 540.518, 260.318, 820.657 ]
+"_edit_horizontal_guides_": [ -0.769444, -0.58379, 960.155, -560.0 ],
+"_edit_vertical_guides_": [ 540.518, 260.318, 820.657, 560.0 ]
 }
 
 [node name="Wheel" parent="." index="0" instance=ExtResource( 2 )]
 
+editor/display_folded = true
+
 [node name="Wheel2" parent="." index="1" instance=ExtResource( 2 )]
 
+editor/display_folded = true
 position = Vector2( 822.465, 960.179 )
 scale = Vector2( -1, 1 )
-collision_mask = 3
 
 [node name="SpawnArea" type="Node2D" parent="." index="2"]
 
@@ -99,13 +101,15 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_mask = 65
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea/Bank" index="0"]
 
 position = Vector2( 24.6183, -46.0579 )
+rotation = 0.00947543
 shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="KillArea/Bank" index="1"]
@@ -130,7 +134,7 @@ _sections_unfolded = [ "Collision" ]
 
 rotation = 0.00070781
 build_mode = 0
-polygon = PoolVector2Array( -0.402039, -467.62, 7.36761, 971.33, 0.962622, 1360, 1040.96, 1359.26, 1215.62, 1665.38, 1202.06, 1406.12, 1200, 1320, 1200, 1120, 1080.76, 1079.24, 1080, 960, 1105.04, 117.744, 1106.4, -1543, 713.863, -1694.28, 543.865, -1756.09, 553.138, -1805.55, 1152.77, -1703.73, 1298.53, 1626.19, 1197.51, 1943.16, -179.257, 1939.73, -158.709, 42.3983, -123.943, -1420.73, -9.40039, -1799.37, 346.049, -1836.46, 550.047, -1805.55, 540.774, -1749.91, 321.323, -1768.46, 43.1444, -1663.37, 15.3265, -1502.64 )
+polygon = PoolVector2Array( -0.402039, -467.62, 0.509623, 720, 120.538, 759.915, 7.36761, 971.33, 0.962622, 1360, 1040.96, 1359.26, 1215.62, 1665.38, 1202.06, 1406.12, 1200, 1320, 1200, 1120, 1040.76, 1079.26, 1080.68, 959.235, 960.538, 759.32, 1080.51, 719.235, 1080.06, 79.2355, 1078.9, -1560.76, 713.863, -1694.28, 543.865, -1756.09, 553.138, -1805.55, 1152.77, -1703.73, 1298.53, 1626.19, 1197.51, 1943.16, -179.257, 1939.73, -158.709, 42.3983, -123.943, -1420.73, -9.40039, -1799.37, 346.049, -1836.46, 550.047, -1805.55, 540.774, -1749.91, 321.323, -1768.46, 43.1444, -1663.37, 15.3265, -1502.64 )
 
 [node name="LBlkNde" type="Node2D" parent="." index="5" groups=[
 "Persist",
@@ -156,7 +160,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 1160.0
 margin_right = 1082.0
-margin_bottom = 1883.0
+margin_bottom = 1800.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -164,6 +168,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 5 )
+_sections_unfolded = [ "Rect" ]
 
 [node name="Timer" type="Timer" parent="Ui" index="0"]
 
@@ -172,16 +177,34 @@ wait_time = 1.0
 one_shot = false
 autostart = true
 
-[node name="CashLbl" type="Label" parent="Ui" index="1"]
+[node name="Panel" type="Panel" parent="Ui" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 181.0
-margin_top = 43.0
-margin_right = 325.0
-margin_bottom = 57.0
+margin_top = -1160.0
+margin_right = 1080.0
+margin_bottom = -960.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = ExtResource( 6 )
+_sections_unfolded = [ "custom_styles" ]
+
+[node name="CashLbl" type="Label" parent="Ui" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 200.0
+margin_top = -1120.0
+margin_right = 344.0
+margin_bottom = -1106.0
 rect_scale = Vector2( 5, 5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -198,16 +221,16 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
-[node name="CpSlbd" type="Label" parent="Ui" index="2"]
+[node name="CpSlbd" type="Label" parent="Ui" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 325.0
-margin_top = 115.0
-margin_right = 469.0
-margin_bottom = 129.0
+margin_left = 344.0
+margin_top = -1048.0
+margin_right = 488.0
+margin_bottom = -1034.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -224,31 +247,45 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
-[node name="ScrollContainer" type="Panel" parent="Ui" index="3"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Ui" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -1280.0
-margin_top = 640.0
-margin_right = -206.0
-margin_bottom = 953.0
+margin_top = 200.0
+margin_right = 560.0
+margin_bottom = 400.0
+rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+scroll_horizontal_enabled = true
+scroll_horizontal = 0
+scroll_vertical_enabled = false
+scroll_vertical = 0
+_sections_unfolded = [ "Rect", "Scroll" ]
 
-[node name="Upgrade" parent="Ui/ScrollContainer" index="0" instance=ExtResource( 6 )]
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/ScrollContainer" index="0"]
 
-margin_left = 8.0
-margin_top = 4.0
-margin_right = 206.0
-margin_bottom = 222.0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 200
+alignment = 0
+_sections_unfolded = [ "Margin", "Rect", "custom_constants" ]
 
-[node name="PopupPanel" type="PopupPanel" parent="Ui" index="4"]
+[node name="PopupPanel" type="PopupPanel" parent="Ui" index="5"]
 
 visible = false
 anchor_left = 0.0
