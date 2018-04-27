@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Test.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Wheel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Spawner.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/KillArea.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Ui.gd" type="Script" id=5]
-[ext_resource path="res://Assets/Tmh/StBRd.tres" type="StyleBox" id=6]
+[ext_resource path="res://Scenes/LgBlk.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Ui.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Tmh/StBRd.tres" type="StyleBox" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -134,11 +135,15 @@ _sections_unfolded = [ "Collision" ]
 
 rotation = 0.00070781
 build_mode = 0
-polygon = PoolVector2Array( -0.402039, -467.62, 0.509623, 720, 120.538, 759.915, 7.36761, 971.33, 0.962622, 1360, 1040.96, 1359.26, 1215.62, 1665.38, 1202.06, 1406.12, 1200, 1320, 1200, 1120, 1040.76, 1079.26, 1080.68, 959.235, 960.538, 759.32, 1080.51, 719.235, 1080.06, 79.2355, 1078.9, -1560.76, 713.863, -1694.28, 543.865, -1756.09, 553.138, -1805.55, 1152.77, -1703.73, 1298.53, 1626.19, 1197.51, 1943.16, -179.257, 1939.73, -158.709, 42.3983, -123.943, -1420.73, -9.40039, -1799.37, 346.049, -1836.46, 550.047, -1805.55, 540.774, -1749.91, 321.323, -1768.46, 43.1444, -1663.37, 15.3265, -1502.64 )
+polygon = PoolVector2Array( -0.402039, -467.62, 0.509623, 720, 120.538, 759.915, 7.36761, 971.33, 0.962622, 1360, 1040.96, 1359.26, 1215.62, 1665.38, 1202.06, 1406.12, 1200, 1320, 1200, 1120, 1040.76, 1079.26, 1080.68, 959.235, 960.538, 759.32, 1080.51, 719.235, 1080.06, 79.2355, 1078.95, -1480.76, 838.952, -1480.59, 478.952, -1480.34, 798.584, -2000.57, 1798.58, -2001.27, 1761.36, 1918.75, 1197.51, 1943.16, -838.612, 1960.59, -800.17, -239.434, -761.415, -1999.46, -201.416, -1999.86, 278.584, -2000.2, 558.584, -2000.4, 758.584, -2000.54, 478.952, -1480.34, 238.952, -1480.17, 15.3265, -1502.64 )
 
 [node name="LBlkNde" type="Node2D" parent="." index="5" groups=[
 "Persist",
 ]]
+
+[node name="LargeBlock" parent="LBlkNde" index="0" instance=ExtResource( 5 )]
+
+position = Vector2( 560, 720 )
 
 [node name="MBlkNde" type="Node2D" parent="." index="6" groups=[
 "Persist",
@@ -167,7 +172,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="Timer" type="Timer" parent="Ui" index="0"]
@@ -192,7 +197,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = ExtResource( 6 )
+custom_styles/panel = ExtResource( 7 )
 _sections_unfolded = [ "custom_styles" ]
 
 [node name="CashLbl" type="Label" parent="Ui" index="2"]
