@@ -9,7 +9,7 @@ var isPhone
 var isNewGame = true
 var f
 var coinsPerSec = 0.0
-var fb = Engine.get_singleton("FireBase")
+var fb 
 
 ## StartingSave
 
@@ -45,6 +45,7 @@ func _ready():
 		get_tree().set_auto_accept_quit(false)
 	if OS.get_name() == "Android":
 		print("Init FireBase")
+		fb = Engine.get_singleton("FireBase")
 		fb.initWithFile("res://godot-firebase-config.json", get_instance_id());
 		#fb.authConfig("'Google':true,'Facebook':false")
 	else:
@@ -93,6 +94,8 @@ func getAds():
 	return currentSaveData.ads
 func saveBlock(type,pos,rot):
 	#print("globalsSavingBlock"+type+" "+str(pos)+" "+str(rot))
+	if pos.y >700:
+		pos.y = 620
 	if type == "L":
 		#print(str(currentSaveData.BlockStates.Lblks))
 		var size = currentSaveData.BlockStates.Lblks.size()

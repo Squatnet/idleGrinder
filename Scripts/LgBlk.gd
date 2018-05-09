@@ -37,7 +37,7 @@ func _process(delta):
 		position.y = -380
 		#get_parent().get_parent().breakBlock(type,position)
 		#queue_free()
-	elif position.y > 720:
+	elif position.y > 740:
 		position.y = 700
 		#get_parent().get_parent().breakBlock(type,position)
 		#queue_free()
@@ -69,5 +69,6 @@ func _on_RigidBody2D_body_entered(body):
 		var toothpower = upg.getBuff("ToothForce",GS.getWheelForce())
 		#print("TOOTH FORCE IS "+str(toothpower) )
 		health -= toothpower
+		
 	if health <= 0:
 		die()

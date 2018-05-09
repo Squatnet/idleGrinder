@@ -6,18 +6,18 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 6.72571
+radius = 18.9787
 
 [node name="Coin" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 64
-collision_mask = 6
+collision_mask = 63
 mode = 0
-mass = 1.0
+mass = 0.01
 friction = 0.0
 bounce = 0.0
-gravity_scale = 3.0
+gravity_scale = 6.0
 custom_integrator = false
 continuous_cd = 0
 contacts_reported = 1
@@ -43,7 +43,7 @@ shape = SubResource( 1 )
 [node name="Timer" type="Timer" parent="." index="2"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 4.0
 one_shot = false
 autostart = false
 

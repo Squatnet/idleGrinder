@@ -148,5 +148,6 @@ func saveAllBlks():
 	for i in $CoinsNode.get_children():
 		i.save()
 	if OS.get_name() == "Android":
-		GS.fb.notifyInMins("Idle Timeout Complete",1)
+		pass
+		#GS.fb.notifyInMins("Idle Timeout Complete",GS.)
 
