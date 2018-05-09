@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 63.2879, 61.6587 )
 
-[node name="SmBlk" type="RigidBody2D"]
+[node name="SmBlk" type="RigidBody2D" index="0"]
 
 position = Vector2( -4.99974, -8.99986 )
 input_pickable = false

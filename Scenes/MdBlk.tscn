@@ -6,9 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 125.036, 121.921 )
+extents = Vector2( 126.719, 121.921 )
 
-[node name="MedBlk" type="RigidBody2D"]
+[node name="MedBlk" type="RigidBody2D" index="0"]
 
 position = Vector2( -4.99974, -8.99986 )
 input_pickable = false

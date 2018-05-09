@@ -23,10 +23,26 @@ func _ready():
 	tx = load("res://Assets/Blocks/"+type+"/"+str(GS.getPrestige())+".png")
 	$Sprite.set_texture(tx)
 func _process(delta):
-	if position.x < -600 or position.x > 1200:
-		queue_free()
-	if position.y < -300 or position.y > 1200:
-		queue_free()
+	if position.x < 0:
+		position.x = 300
+		#get_parent().get_parent().breakBlock(type,position)
+		#queue_free()
+	elif position.x > 800:
+		position.x = 700
+		#get_parent().get_parent().breakBlock(type,position)
+		#queue_free()
+	else:
+		pass
+	if position.y < -400:
+		position.y = -380
+		#get_parent().get_parent().breakBlock(type,position)
+		#queue_free()
+	elif position.y > 740:
+		position.y = 700
+		#get_parent().get_parent().breakBlock(type,position)
+		#queue_free()
+	else:
+		pass
 		
 func setFloored(val):
 	floored = val
@@ -53,5 +69,6 @@ func _on_RigidBody2D_body_entered(body):
 		var toothpower = upg.getBuff("ToothForce",GS.getWheelForce())
 		#print("TOOTH FORCE IS "+str(toothpower) )
 		health -= toothpower
+		
 	if health <= 0:
 		die()

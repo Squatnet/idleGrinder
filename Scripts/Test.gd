@@ -53,6 +53,7 @@ func _ready():
 			respawnSmBlk(S[key].pos,S[key].rot)
 		for key in C:
 			respawnCoin(C[key].pos,C[key].rot)
+		spawnLgBlk()
 	else:
 		spawnLgBlk()
 		#spawnMedBlk(Vector2(rand_range(200,700),-200))
@@ -66,11 +67,14 @@ func spawnLgBlk():
 	if get_node("LBlkNde").get_child_count() < 5:
 		var newBlk = lrgBlk.instance()
 		randomize()
-		newBlk.position =  Vector2(rand_range(150,800),-400)
+		newBlk.position =  Vector2(rand_range(300,700),-300)
 		$LBlkNde.add_child(newBlk)
 		#print("spawned LBlk with scale "+str(scl))
 	else: 
-		#print("Too many lBlk")
+		print("Too many lBlk")
+		for i in $LBlkNde.get_children():
+			print(i.position)
+		
 		pass
 func respawnLgBlk(pos,rot):
 	#print("currentLblk = "+str(get_node("LBlkNde").get_child_count()))
@@ -144,5 +148,6 @@ func saveAllBlks():
 	for i in $CoinsNode.get_children():
 		i.save()
 	if OS.get_name() == "Android":
-		GS.fb.notifyInMins("Idle Timeout Complete",1)
+		pass
+		#GS.fb.notifyInMins("Idle Timeout Complete",GS.)
 

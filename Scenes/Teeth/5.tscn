@@ -7,9 +7,7 @@
 scale = Vector2( 1.01, 1.01 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tooth" type="StaticBody2D" parent="." index="0" groups=[
-"Sp",
-]]
+[node name="Tooth" type="StaticBody2D" parent="." index="0"]
 
 position = Vector2( -4.52774, -293.113 )
 input_pickable = false
@@ -24,7 +22,9 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Tooth" index="0"]
+[node name="Sprite" type="Sprite" parent="Tooth" index="0" groups=[
+"Sp",
+]]
 
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
@@ -35,9 +35,7 @@ _sections_unfolded = [ "Transform" ]
 build_mode = 0
 polygon = PoolVector2Array( 2.83997, -46.7579, 40.6653, 49.4263, -38.2275, 50.507 )
 
-[node name="Tooth2" type="StaticBody2D" parent="." index="1" groups=[
-"Sp",
-]]
+[node name="Tooth2" type="StaticBody2D" parent="." index="1"]
 
 position = Vector2( 287.423, -66.6443 )
 rotation = 1.37555
@@ -53,7 +51,9 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Tooth2" index="0"]
+[node name="Sprite" type="Sprite" parent="Tooth2" index="0" groups=[
+"Sp",
+]]
 
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
@@ -64,9 +64,7 @@ _sections_unfolded = [ "Transform" ]
 build_mode = 0
 polygon = PoolVector2Array( 2.83997, -46.7579, 40.6653, 49.4263, -38.2275, 50.507 )
 
-[node name="Tooth3" type="StaticBody2D" parent="." index="2" groups=[
-"Sp",
-]]
+[node name="Tooth3" type="StaticBody2D" parent="." index="2"]
 
 position = Vector2( 223.581, 194.735 )
 rotation = 2.2849
@@ -82,7 +80,9 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Tooth3" index="0"]
+[node name="Sprite" type="Sprite" parent="Tooth3" index="0" groups=[
+"Sp",
+]]
 
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
@@ -93,9 +93,7 @@ _sections_unfolded = [ "Transform" ]
 build_mode = 0
 polygon = PoolVector2Array( 2.83997, -46.7579, 40.6653, 49.4263, -38.2275, 50.507 )
 
-[node name="Tooth4" type="StaticBody2D" parent="." index="3" groups=[
-"Sp",
-]]
+[node name="Tooth4" type="StaticBody2D" parent="." index="3"]
 
 position = Vector2( -217.512, 200.633 )
 rotation = 4.0175
@@ -111,7 +109,9 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Tooth4" index="0"]
+[node name="Sprite" type="Sprite" parent="Tooth4" index="0" groups=[
+"Sp",
+]]
 
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
@@ -122,9 +122,7 @@ _sections_unfolded = [ "Transform" ]
 build_mode = 0
 polygon = PoolVector2Array( 2.83997, -46.7579, 40.6653, 49.4263, -38.2275, 50.507 )
 
-[node name="Tooth5" type="StaticBody2D" parent="." index="4" groups=[
-"Sp",
-]]
+[node name="Tooth5" type="StaticBody2D" parent="." index="4"]
 
 position = Vector2( -289.872, -68.282 )
 rotation = 4.93095
@@ -140,7 +138,9 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Tooth5" index="0"]
+[node name="Sprite" type="Sprite" parent="Tooth5" index="0" groups=[
+"Sp",
+]]
 
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
