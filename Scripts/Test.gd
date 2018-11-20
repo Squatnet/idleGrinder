@@ -64,7 +64,7 @@ func _process(delta):
 		spawnLgBlk()
 func spawnLgBlk():
 	#print("currentLblk = "+str(get_node("LBlkNde").get_child_count()))
-	if get_node("LBlkNde").get_child_count() < 5:
+	if get_node("LBlkNde").get_child_count() < 3:
 		var newBlk = lrgBlk.instance()
 		randomize()
 		newBlk.position =  Vector2(rand_range(300,700),-300)
@@ -72,8 +72,8 @@ func spawnLgBlk():
 		#print("spawned LBlk with scale "+str(scl))
 	else: 
 		print("Too many lBlk")
-		for i in $LBlkNde.get_children():
-			print(i.position)
+		#for i in $LBlkNde.get_children():
+		#	print(i.position)
 		
 		pass
 func respawnLgBlk(pos,rot):
@@ -93,6 +93,16 @@ func spawnMedBlk(pos):
 		newBlk.add_force(Vector2(scl*10,scl*10),Vector2(scl*10,scl*3))
 		$MBlkNde.add_child(newBlk)
 		#print("spawned MBlk with scale "+str(scl))
+	num = int(rand_range(0,2))
+	for i in num:
+		var newCoin = Coin.instance()
+		randomize()
+		newCoin.position =  pos
+		randomize()
+		var scl = rand_range(0.5,1)
+		newCoin.add_force(Vector2(scl*10,scl*10),Vector2(scl*10,scl*3))
+		$CoinsNode.add_child(newCoin)
+		#print("spawned SBlk with scale "+str(scl))
 func respawnMdBlk(pos,rot):
 	#print("currentLblk = "+str(get_node("LBlkNde").get_child_count()))
 	var newBlk = medBlk.instance()
@@ -110,6 +120,16 @@ func spawnSmBlk(pos):
 		newBlk.add_force(Vector2(scl*10,scl*10),Vector2(scl*10,scl*3))
 		$SBlkNde.add_child(newBlk)
 		#print("spawned SBlk with scale "+str(scl))
+	num = int(rand_range(0,3))
+	for i in num:
+		var newCoin = Coin.instance()
+		randomize()
+		newCoin.position =  pos
+		randomize()
+		var scl = rand_range(0.5,1)
+		newCoin.add_force(Vector2(scl*10,scl*10),Vector2(scl*10,scl*3))
+		$CoinsNode.add_child(newCoin)
+		#print("spawned SBlk with scale "+str(scl))
 func respawnSmBlk(pos,rot):
 	#print("currentLblk = "+str(get_node("LBlkNde").get_child_count()))
 	var newBlk = SmlBlk.instance()
@@ -119,7 +139,7 @@ func respawnSmBlk(pos,rot):
 func spawnCoin(pos):
 	var newCoin = Coin.instance()
 	newCoin.position = pos
-	if $CoinsNode.get_child_count() > 10:
+	if $CoinsNode.get_child_count() > 100:
 		newCoin.position.y = 1200
 	$CoinsNode.add_child(newCoin)
 	#print("Added Coin")
@@ -139,6 +159,9 @@ func breakBlock(type,pos):
 		spawnCoin(pos)
 	#print(pos)
 func saveAllBlks():
+	GS.returnBlocks("L",true)
+	GS.returnBlocks("M",true)
+	GS.returnBlocks("S",true)
 	for i in $LBlkNde.get_children():
 		i.save()
 	for i in $MBlkNde.get_children():

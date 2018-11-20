@@ -7,10 +7,7 @@ path="res://.import/0-3.png-931e7e89cebf8f52961221b01edadba4.stex"
 [deps]
 
 source_file="res://Assets/Conveyor/0-3.png"
-source_md5="60e4f4ca1546f1f8d289c33a0210f841"
-
 dest_files=[ "res://.import/0-3.png-931e7e89cebf8f52961221b01edadba4.stex" ]
-dest_md5="cba946358b505c7b3c5f5eb1b8260b38"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/5.png-f585c7b88185b371bd01eaecc9721c9b.stex"
 [deps]
 
 source_file="res://Assets/Coins/5.png"
-source_md5="3eedc5e0b81bac6b02e45f75c6df4284"
-
 dest_files=[ "res://.import/5.png-f585c7b88185b371bd01eaecc9721c9b.stex" ]
-dest_md5="8449a7a5950d8a48d10f00bce77aeca0"
 
 [params]
 

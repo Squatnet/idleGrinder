@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Test.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Wheel.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Assets/Theme.tres" type="Theme" id=7]
 [ext_resource path="res://Scripts/Ui.gd" type="Script" id=8]
 [ext_resource path="res://Assets/Tmh/StBRd.tres" type="StyleBox" id=9]
-[ext_resource path="res://Scenes/UI/Upgrades/Upgrade.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -26,7 +25,7 @@ extents = Vector2( 32.3744, 3.01468 )
 custom_solver_bias = 0.0
 extents = Vector2( 80, 397.633 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Z Index" ]
@@ -99,7 +98,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea/Conveyor" index="0"]
 
-position = Vector2( 3.8147e-06, -17.1534 )
+position = Vector2( 3.8147e-006, -17.1534 )
 scale = Vector2( 1, 1.53904 )
 shape = SubResource( 2 )
 
@@ -634,7 +633,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_styles/panel = ExtResource( 9 )
-_sections_unfolded = [ "custom_styles" ]
+_sections_unfolded = [ "Rect", "custom_styles" ]
 
 [node name="CashLbl" type="Label" parent="Ui" index="2"]
 
@@ -694,9 +693,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 200.0
+margin_top = 245.0
 margin_right = 560.0
-margin_bottom = 400.0
+margin_bottom = 457.0
+rect_min_size = Vector2( 560, 200 )
 rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -709,7 +709,8 @@ scroll_horizontal_enabled = true
 scroll_horizontal = 0
 scroll_vertical_enabled = false
 scroll_vertical = 0
-_sections_unfolded = [ "Rect", "Scroll", "Theme" ]
+scroll_deadzone = 0
+_sections_unfolded = [ "Focus", "Mouse", "Rect", "Scroll", "Size Flags", "Theme" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -720,6 +721,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_right = 560.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 560, 200 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -728,14 +732,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 theme = ExtResource( 7 )
 alignment = 0
-_sections_unfolded = [ "Margin", "Rect", "Theme", "custom_constants" ]
-
-[node name="Upgrade" parent="Ui/ScrollContainer/HBoxContainer" index="0" instance=ExtResource( 10 )]
-
-margin_top = 0.0
-margin_right = 0.0
-margin_bottom = 0.0
-rect_scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Anchor", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "custom_constants" ]
 
 [node name="PopupPanel" type="PopupPanel" parent="Ui" index="5"]
 

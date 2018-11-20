@@ -14,10 +14,10 @@ func _ready():
 #	# Update game logic here.
 #	pass
 func setupUpgrades():
+	var currX = 4
 	for key in upg.upgrades:
 		var dict = {}
 		var lvl = GS.getupgradeLvl(key)
-		
 		dict["lvl"] = lvl
 		dict["currBuff"] = upg.getBuff(key,lvl)
 		dict["nextBuff"] = upg.getNextBuff(key,lvl)
@@ -25,6 +25,7 @@ func setupUpgrades():
 		var p = pan.instance()
 		p.setup(key,dict)
 		$ScrollContainer/HBoxContainer.add_child(p)
+		$ScrollContainer/HBoxContainer.add_spacer(false)
 	var pres = load("res://Scenes/UI/Upgrades/Prestige.tscn").instance()
 	pres.setup()
 	$ScrollContainer/HBoxContainer.add_child(pres)
@@ -34,4 +35,5 @@ func _on_Timer_timeout():
 	$CashLbl.set_text("$"+str(GS.getCash()))
 	$CpSlbd.set_text(str(GS.getCoinsPerSec())+"/sec")
 	for i in $ScrollContainer/HBoxContainer.get_children():
-		i.updateShit()
+		if i.get_child_count() != 0:
+			i.updateShit()

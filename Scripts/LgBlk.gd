@@ -17,7 +17,7 @@ func _ready():
 		health = 100
 	elif get_parent().get_name() == "SBlkNde":
 		type = "S"
-		health = 80
+		health = 30
 	else:
 		type = "X"
 	tx = load("res://Assets/Blocks/"+type+"/"+str(GS.getPrestige())+".png")
@@ -69,6 +69,11 @@ func _on_RigidBody2D_body_entered(body):
 		var toothpower = upg.getBuff("ToothForce",GS.getWheelForce())
 		#print("TOOTH FORCE IS "+str(toothpower) )
 		health -= toothpower
-		
+	if health <= 0:
+		die()
+
+func _on_TextureButton_pressed():
+	var touchpowerr = upg.getBuff("TapValue",GS.getTapAmount())
+	health -= touchpowerr
 	if health <= 0:
 		die()

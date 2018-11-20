@@ -7,10 +7,7 @@ path="res://.import/4.png-e336b33ac2708fe5d578e6a3154e3579.stex"
 [deps]
 
 source_file="res://Assets/Teeth/4.png"
-source_md5="40d34bafe15d0570a02d29ebed902dcc"
-
 dest_files=[ "res://.import/4.png-e336b33ac2708fe5d578e6a3154e3579.stex" ]
-dest_md5="25ea024bc0b58c4885649e414beb4959"
 
 [params]
 

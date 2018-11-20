@@ -1,6 +1,7 @@
 extends Node
 var upgrades = {
 				"RPM":{"FriendlyName":"Wheel RPM","Abbr":"RPM"},
+				"TapValue":{"FriendlyName":"Tap Value","Abbr":"x"},
 				"ToothForce":{"FriendlyName":"Tooth Force","Abbr":"Force"},
 				"ToothNumber":{"FriendlyName":"No of Teeth","Abbr":"Teeth"},
 				"CoinValues":{"FriendlyName":"Coin Value","Abbr":"val"},

@@ -10,11 +10,12 @@ var isNewGame = true
 var f
 var coinsPerSec = 0.0
 var fb 
-
+var resolvedIdleOnStart = false
 ## StartingSave
 
 var starterSave = { "Prestige":0,
 					"Cash":0,
+					"TapValue":0,
 					"WheelRpm":0,
 					"CoinValue":0,
 					"WheelForce":0,
@@ -60,7 +61,7 @@ func LoadGame():
 		if f.is_open():
 			currentSaveData = f.get_var()
 			print("Save Game opened")
-			print(str(currentSaveData))
+			#print(str(currentSaveData))
 			isNewGame = false
 			f.close()
 			return currentSaveData
@@ -112,6 +113,10 @@ func saveBlock(type,pos,rot):
 		currentSaveData.BlockStates.Cblks[size+1] = {"pos":pos,"rot":rot}
 	saveActiveGame()
 func returnBlocks(type,clear):
+	if clear:
+		currentSaveData.BlockStates[type+"blks"].clear()
+	else:
+		pass
 	if type == "L":
 			#print("L"+str(currentSaveData.BlockStates.Lblks))
 			return currentSaveData.BlockStates.Lblks
@@ -121,13 +126,9 @@ func returnBlocks(type,clear):
 	elif type == "S":
 			#print("S")
 			return currentSaveData.BlockStates.Sblks
-	if type == "C":
+	elif type == "C":
 			#print("C")
 			return currentSaveData.BlockStates.Cblks
-	if clear:
-		currentSaveData.BlockStates[type+"blks"].clear()
-	else:
-		pass
 
 func checkBlocks():
 	var c = 0
@@ -145,6 +146,7 @@ func makeNewSave():
 	currentSaveData = starterSave
 	setSaveTime()
 func setSaveTime():
+	var theTime = getTime()
 	currentSaveData["LastSavedTime"] = getTime()
 	saveActiveGame()
 	print("TimeSaved")
@@ -154,29 +156,44 @@ func getTime():
 	var www = RPC.new()
 	var response = www.get("/api/idleG/time.php")
 	if !response:
-		return 0
+		return OS.get_unix_time()
 		print("Time check failed failed failed")
 	else:
-		return int(response.getBody())
+		print(" system time is "+str(OS.get_unix_time()))
+		print(" Web Time was - "+response.getBody())
+		var theTime = int(response.getBody())
+		print(theTime)
+		print("TIME")
+		if theTime == 0:
+			theTime = OS.get_unix_time()
+		print(theTime)
+		print("Returned")
+		return theTime
 func resolveIdle():
-	var diff = (getTime() - getSaveTime())
-	if diff > upg.getBuff("TimeOut",getMaxIdleTime()):
-		diff = upg.getBuff("TimeOut",getMaxIdleTime())
-	var coins = diff*upg.getBuff("CoinValues",getCoinValue())
-	print(coins)
-	var profit = (coins*getSavedCoinsPerSec())
-	print(profit)
-	profit *= 0.25
-	print(profit)
-	print(int(profit))
-	var dateTime = OS.get_datetime_from_unix_time(diff)
-	addCash(profit)
-	if diff < 60:
-		return "you idled for "+str(dateTime.second)+"s. You made "+str(int(profit))+"."
-	elif diff < 3600:
-		return "you idled for "+str(dateTime.minute)+"m "+str(dateTime.second)+"s. You made "+str(int(profit))+"."
+	var theTime = getTime()
+	if theTime == 0:
+		theTime = OS.get_unix_time()
+	if theTime != 0:
+		var diff = (theTime - getSaveTime())
+		if diff > upg.getBuff("TimeOut",getMaxIdleTime()):
+			diff = upg.getBuff("TimeOut",getMaxIdleTime())
+		var coins = diff*upg.getBuff("CoinValues",getCoinValue())
+		print(coins)
+		var profit = (coins*getSavedCoinsPerSec())
+		print(profit)
+		profit *= 0.25
+		print(profit)
+		print(int(profit))
+		var dateTime = OS.get_datetime_from_unix_time(diff)
+		addCash(profit)
+		if diff < 60:
+			return "you idled for "+str(dateTime.second)+"s. You made "+str(int(profit))+"."
+		elif diff < 3600:
+			return "you idled for "+str(dateTime.minute)+"m "+str(dateTime.second)+"s. You made "+str(int(profit))+"."
+		else:
+			return "you idled for "+str(dateTime.hour)+"h "+str(dateTime.minute)+"m "+str(dateTime.second)+"s. You made "+str(int(profit))+"."
 	else:
-		return "you idled for "+str(dateTime.hour)+"h "+str(dateTime.minute)+"m "+str(dateTime.second)+"s. You made "+str(int(profit))+"."
+		return "Could not get the time"
 
 func setCoinsPerSec(val):
 	coinsPerSec = float(val)
@@ -210,6 +227,10 @@ func setWheelRpm(val):
 	currentSaveData["WheelRpm"] = val
 func getWheelRpm():
 	return currentSaveData.WheelRpm
+func setTapAmount(val):
+	currentSaveData["TapValue"] = val
+func getTapAmount():
+	return currentSaveData.TapValue
 func setWheelForce(val):
 	currentSaveData["WheelForce"] = val
 func getWheelForce():
@@ -232,6 +253,8 @@ func getupgradeLvl(type):
 	var response
 	if type =="RPM":
 		response = getWheelRpm()
+	if type == "TapValue":
+		response = getTapAmount()
 	elif type == "ToothForce":
 		response = getWheelForce()
 	elif type == "ToothNumber":
@@ -251,6 +274,9 @@ func setupgradeLvl(type):
 	if type =="RPM":
 		response = getWheelRpm()
 		setWheelRpm(response+1)
+	if type =="TapValue":
+		response = getTapAmount()
+		setTapAmount(response+1)
 	elif type == "ToothForce":
 		response = getWheelForce()
 		setWheelForce(response+1)

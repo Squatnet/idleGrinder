@@ -7,10 +7,7 @@ path="res://.import/0.png-96d7e6e1dd39ef3e5b5f8fb483874afb.stex"
 [deps]
 
 source_file="res://Assets/Blocks/L/0.png"
-source_md5="df74bfc950f84fc4780601bf42e29010"
-
 dest_files=[ "res://.import/0.png-96d7e6e1dd39ef3e5b5f8fb483874afb.stex" ]
-dest_md5="c342a2f34b30eb8c29d647fa8a8b3e14"
 
 [params]
 

@@ -88,6 +88,7 @@ func _parseBody():
 	var body = client.read_response_body_chunk().get_string_from_utf8()
 	var response = _respond(body)
 	if( response.getResponseCode() >= 400 ):
+		print(response.getResponseCode())
 		return
 		
 	return response

@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 250.737, 250.485 )
 
-[node name="LargeBlock" type="RigidBody2D" index="0"]
+[node name="LargeBlock" type="RigidBody2D"]
 
 position = Vector2( -4.99974, -8.99986 )
 input_pickable = false
@@ -41,6 +41,30 @@ texture = ExtResource( 2 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="TextureButton" type="TextureButton" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -221.0
+margin_top = -219.0
+margin_right = 231.0
+margin_bottom = 222.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
 [connection signal="body_entered" from="." to="." method="_on_RigidBody2D_body_entered"]
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 
 

@@ -7,10 +7,7 @@ path="res://.import/4.png-41580e060d8d6f58bedefc84021762be.stex"
 [deps]
 
 source_file="res://Assets/Wheels/4.png"
-source_md5="497aec7cec1af8d4e3b46bc92c9f011c"
-
 dest_files=[ "res://.import/4.png-41580e060d8d6f58bedefc84021762be.stex" ]
-dest_md5="6ec75fab575c2305f1a69971da7e0fe1"
 
 [params]
 

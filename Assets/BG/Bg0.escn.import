@@ -7,10 +7,7 @@ path="res://.import/Bg0.escn-7fd70099ecc9bcbc4970740846e5d6f6.scn"
 [deps]
 
 source_file="res://Assets/BG/Bg0.escn"
-source_md5="4a2f131872a86a6bef3105170e41f4c1"
-
 dest_files=[ "res://.import/Bg0.escn-7fd70099ecc9bcbc4970740846e5d6f6.scn" ]
-dest_md5="dace7400f8fc353a507240d56a6c09af"
 
 [params]
 
