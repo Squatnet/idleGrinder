@@ -208,7 +208,19 @@ func getSavedCoinsPerSec():
 func getPrestige():
 	return currentSaveData.Prestige
 func setPrestige():
-	currentSaveData.prestige += 1
+	currentSaveData.Prestige += 1
+	resetUpg()
+func resetUpg():
+	currentSaveData.Cash = 0
+	currentSaveData.TapValue=0
+	currentSaveData.WheelRpm=0
+	currentSaveData.CoinValue=0
+	currentSaveData.WheelForce=0
+	currentSaveData.TeethNum=0
+	currentSaveData.IdleTimeOut=0
+	currentSaveData.IdlePercentage=0
+	currentSaveData.LastSavedTime=0
+	currentSaveData.LastCoinsPerSec=0
 func setMaxIdleTime(secs):
 	currentSaveData["IdleTimeOut"] = secs
 func getMaxIdleTime():
@@ -247,8 +259,8 @@ func calcPrestigePrice():
 	var lv = getPrestige()
 	var init = (1000*1000)
 	for i in lv:
-		init *1.213423
-	return init
+		init *= 3.213423
+	return int(init)
 func getupgradeLvl(type):
 	var response
 	if type =="RPM":
@@ -268,6 +280,8 @@ func getupgradeLvl(type):
 	return response
 var prestigeNames = ["Wood","Stone","Iron","Steel","Diamond"]
 func getPrestigeName(val):
+	print("Got name !!! ")
+	print(val)
 	return prestigeNames[val]
 func setupgradeLvl(type):
 	var response

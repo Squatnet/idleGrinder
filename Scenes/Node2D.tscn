@@ -25,7 +25,7 @@ extents = Vector2( 32.3744, 3.01468 )
 custom_solver_bias = 0.0
 extents = Vector2( 80, 397.633 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Z Index" ]
@@ -46,7 +46,6 @@ scale = Vector2( -1, 1 )
 
 [node name="SpawnArea" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( 32.4009, -32.0056 )
 script = ExtResource( 3 )
 
@@ -72,6 +71,7 @@ shape = SubResource( 1 )
 
 [node name="KillArea" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( 17.2217, 1957.23 )
 scale = Vector2( 1, 0.905317 )
 script = ExtResource( 4 )
@@ -569,7 +569,7 @@ _sections_unfolded = [ "Collision" ]
 
 rotation = 0.00070781
 build_mode = 0
-polygon = PoolVector2Array( -0.402039, -467.62, 0.509623, 720, 120.538, 759.915, 7.36761, 971.33, 0.962622, 1360, 1040.96, 1359.26, 1215.62, 1665.38, 1202.06, 1406.12, 1200, 1320, 1200, 1120, 1040.76, 1079.26, 1080.68, 959.235, 960.538, 759.32, 1080.51, 719.235, 1080.06, 79.2355, 1078.95, -1480.76, 838.952, -1480.59, 478.952, -1480.34, 798.584, -2000.57, 1798.58, -2001.27, 1761.36, 1918.75, 1197.51, 1943.16, -838.612, 1960.59, -800.17, -239.434, -761.415, -1999.46, -201.416, -1999.86, 278.584, -2000.2, 558.584, -2000.4, 758.584, -2000.54, 478.952, -1480.34, 238.952, -1480.17, 15.3265, -1502.64 )
+polygon = PoolVector2Array( -0.402039, -467.62, 1.05159, 649.604, 50.6509, 814.25, 7.36761, 971.33, 0.962622, 1360, 1040.96, 1359.26, 1215.62, 1665.38, 1202.06, 1406.12, 1200, 1320, 1200, 1120, 1040.76, 1079.26, 1080.68, 959.235, 1030.44, 795.012, 1077.78, 618.157, 1080.06, 79.2355, 1078.95, -1480.76, 838.952, -1480.59, 478.952, -1480.34, 798.584, -2000.57, 1798.58, -2001.27, 1761.36, 1918.75, 1197.51, 1943.16, -838.612, 1960.59, -800.17, -239.434, -761.415, -1999.46, -201.416, -1999.86, 278.584, -2000.2, 558.584, -2000.4, 758.584, -2000.54, 478.952, -1480.34, 238.952, -1480.17, 15.3265, -1502.64 )
 
 [node name="LBlkNde" type="Node2D" parent="." index="6" groups=[
 "Persist",
@@ -606,7 +606,6 @@ theme = ExtResource( 7 )
 script = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Theme" ]
 __meta__ = {
-"_edit_group_": true,
 "_edit_lock_": true
 }
 
@@ -623,9 +622,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = -1160.0
-margin_right = 1080.0
-margin_bottom = -960.0
+margin_left = -3.0
+margin_top = -1117.0
+margin_right = 1077.0
+margin_bottom = -917.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -635,16 +635,40 @@ size_flags_vertical = 1
 custom_styles/panel = ExtResource( 9 )
 _sections_unfolded = [ "Rect", "custom_styles" ]
 
+[node name="Button" type="Button" parent="Ui/Panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 22.0
+margin_top = 15.0
+margin_right = 87.0
+margin_bottom = 84.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+
 [node name="CashLbl" type="Label" parent="Ui" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 200.0
-margin_top = -1120.0
-margin_right = 344.0
-margin_bottom = -1106.0
+margin_left = 197.0
+margin_top = -1086.0
+margin_right = 341.0
+margin_bottom = -1072.0
 rect_scale = Vector2( 5, 5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -667,10 +691,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 344.0
-margin_top = -1048.0
-margin_right = 488.0
-margin_bottom = -1034.0
+margin_left = 341.0
+margin_top = -996.0
+margin_right = 485.0
+margin_bottom = -982.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -839,6 +863,8 @@ _sections_unfolded = [ "Rect" ]
 [connection signal="timeout" from="KillArea/Bank/Timer" to="KillArea" method="_on_Timer_timeout"]
 
 [connection signal="timeout" from="Ui/Timer" to="Ui" method="_on_Timer_timeout"]
+
+[connection signal="pressed" from="Ui/Panel/Button" to="Ui" method="_on_Button_pressed"]
 
 
 [editable path="Wheel"]
