@@ -36,6 +36,8 @@ func _ready():
 			GS.fb.show_banner_ad(true)
 	www = RPC.new()
 	$Wheel2.setSide("R")
+	# SORT ME OUT
+	
 	$Ui/PopupPanel/writeME.set_text(GS.resolveIdle())
 	$Ui/PopupPanel.popup_centered()
 	isPhone = GS.isPhone
@@ -174,3 +176,7 @@ func saveAllBlks():
 		pass
 		#GS.fb.notifyInMins("Idle Timeout Complete",GS.)
 
+
+
+func _on_Button_pressed():
+	pass # replace with function body

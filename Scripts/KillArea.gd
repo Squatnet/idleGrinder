@@ -25,7 +25,7 @@ func _on_Bank_body_entered(body):
 	GS.addCash(upg.getBuff("CoinValues",GS.getCoinValue()))
 	body.queue_free()
 	count += float(upg.getBuff("CoinValues",GS.getCoinValue()))
-
+	get_parent().get_node("Ui")
 
 func _on_Timer_timeout():
 	count /= 10.0

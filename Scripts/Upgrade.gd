@@ -58,4 +58,5 @@ func updateShit():
 func _on_Button_pressed():
 	GS.remCash(price)
 	GS.setupgradeLvl(type)
+	updateShit()
 

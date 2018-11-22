@@ -4,8 +4,11 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 
+var screen_size = OS.get_screen_size() 
+var window_size = OS.get_window_size()
 func _ready():
-	pass
+	OS.set_window_position(screen_size*0.5 - window_size*0.5) # Windows screen position fix
+	print("MAINMENU:  MAIN MENU LOADED")
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.

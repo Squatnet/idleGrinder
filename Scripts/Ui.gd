@@ -31,9 +31,14 @@ func setupUpgrades():
 	$ScrollContainer/HBoxContainer.add_child(pres)
 	cnt.rect_size = Vector2(200,10)
 	$ScrollContainer/HBoxContainer.add_child(cnt)
-func _on_Timer_timeout():
+func cashLbls():
 	$CashLbl.set_text("$"+str(GS.getCash()))
 	$CpSlbd.set_text(str(GS.getCoinsPerSec())+"/sec")
+func _on_Timer_timeout():
+	cashLbls()
 	for i in $ScrollContainer/HBoxContainer.get_children():
 		if i.get_child_count() != 0:
 			i.updateShit()
+
+func _on_Button_pressed():
+	GS.addCash(1000000)

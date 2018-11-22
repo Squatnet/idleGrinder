@@ -10,8 +10,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = -1.0
 margin_top = 10.0
-margin_right = 190.0
+margin_right = 219.0
 margin_bottom = 210.0
 rect_min_size = Vector2( 220, 200 )
 rect_scale = Vector2( 2.5, 2.5 )
@@ -25,7 +26,8 @@ custom_styles/panel = ExtResource( 1 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Rect", "custom_styles" ]
 __meta__ = {
-"_edit_vertical_guides_": [ 100.356 ]
+"_edit_horizontal_guides_": [ 260.0, 0.0, 520.0, 0.0, 20.0, 20.0, 20.0 ],
+"_edit_vertical_guides_": [ 560.0, -10.0, -10.0, 270.0, 0.0, 550.0, 90.0, 470.0 ]
 }
 
 [node name="TopLbl" type="Label" parent="." index="0"]
@@ -34,10 +36,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 40.0
-margin_top = 8.0
-margin_right = 160.0
-margin_bottom = 28.0
+margin_left = 36.0
+margin_top = 4.0
+margin_right = 188.0
+margin_bottom = 24.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -58,7 +60,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
+margin_left = 8.0
 margin_top = 90.0
 margin_right = 120.0
 margin_bottom = 110.0
@@ -81,7 +83,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
+margin_left = 8.0
 margin_top = 110.0
 margin_right = 120.0
 margin_bottom = 130.0
@@ -104,7 +106,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
+margin_left = 8.0
 margin_top = 130.0
 margin_right = 120.0
 margin_bottom = 150.0
@@ -127,10 +129,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 63.0
-margin_top = 168.0
-margin_right = 135.0
-margin_bottom = 188.0
+margin_left = 72.0
+margin_top = 164.0
+margin_right = 148.0
+margin_bottom = 184.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -148,7 +150,7 @@ align = 1
 
 [node name="Sprite" type="Sprite" parent="." index="5"]
 
-position = Vector2( 100, 60 )
+position = Vector2( 108.4, 60 )
 scale = Vector2( 1, 0.9375 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
