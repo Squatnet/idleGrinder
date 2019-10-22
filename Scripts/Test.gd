@@ -143,7 +143,7 @@ func spawnCoin(pos):
 	newCoin.position = pos
 	if $CoinsNode.get_child_count() > 100:
 		newCoin.position.y = 1200
-	$CoinsNode.add_child(newCoin)
+	$CoinsNode.call_deferred("add_child",newCoin)
 	#print("Added Coin")
 func respawnCoin(pos,rot):
 	#print("currentLblk = "+str(get_node("LBlkNde").get_child_count()))

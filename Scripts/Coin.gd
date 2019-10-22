@@ -4,7 +4,7 @@ extends RigidBody2D
 # var a = 2
 # var b = "textvar"
 var floored = false
-
+var timedOut = false
 func _ready():
 	var tx = load("res://Assets/Coins/"+str(int(GS.getCoinValue()/4))+".png")
 	$Sprite.set_texture(tx)
@@ -13,6 +13,9 @@ func save():
 func setFloored(val):
 	floored = val
 func _process(delta):
+	if timedOut:
+		position.x = 556
+		linear_velocity += Vector2(0,40)
 	if floored == true:
 		gravity_scale = 0
 		if linear_velocity <= Vector2(1000,0):
@@ -20,4 +23,4 @@ func _process(delta):
 
 
 func _on_Timer_timeout():
-	position.y = 1200
+	timedOut = true

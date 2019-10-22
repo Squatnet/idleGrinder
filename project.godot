@@ -6,7 +6,16 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=3
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[android]
+
+modules="org/godotengine/godot/FireBase,org/godotengine/godot/SQLBridge"
 
 [application]
 
@@ -41,7 +50,3 @@ window/stretch/aspect="keep"
 [rendering]
 
 environment/default_environment="res://default_env.tres"
-
-[android]
-
-modules="org/godotengine/godot/FireBase,org/godotengine/godot/SQLBridge"

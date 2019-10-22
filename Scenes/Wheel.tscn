@@ -4,40 +4,23 @@
 [ext_resource path="res://Assets/wheel.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
 radius = 253.837
 
 [node name="Wheel" type="StaticBody2D"]
-
 position = Vector2( 260.281, 960.451 )
-input_pickable = false
-collision_layer = 1
 collision_mask = 56
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
+[node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Tettt" type="Node2D" parent="." index="2"]
+[node name="Tettt" type="Node2D" parent="."]
 
-[node name="Timer" type="Timer" parent="." index="3"]
-
+[node name="Timer" type="Timer" parent="."]
 process_mode = 0
 wait_time = 3.0
-one_shot = false
 autostart = true
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-
-

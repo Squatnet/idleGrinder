@@ -11,861 +11,531 @@
 [ext_resource path="res://Assets/Tmh/StBRd.tres" type="StyleBox" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
 extents = Vector2( 32.966, 22.297 )
 
 [sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
 extents = Vector2( 32.3744, 3.01468 )
 
 [sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
 extents = Vector2( 80, 397.633 )
 
-[node name="Node2D" type="Node2D" index="0"]
-
+[node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
-_sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_horizontal_guides_": [ -0.769444, -0.58379, 960.155, -560.0 ],
-"_edit_vertical_guides_": [ 540.518, 260.318, 820.657, 560.0 ]
+"_edit_vertical_guides_": [ 540.518, 260.318, 820.657, 556.928 ]
 }
 
-[node name="Wheel" parent="." index="0" instance=ExtResource( 2 )]
+[node name="Wheel" parent="." instance=ExtResource( 2 )]
 
-editor/display_folded = true
-
-[node name="Wheel2" parent="." index="1" instance=ExtResource( 2 )]
-
+[node name="Wheel2" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
 position = Vector2( 822.465, 960.179 )
 scale = Vector2( -1, 1 )
 
-[node name="SpawnArea" type="Node2D" parent="." index="2"]
-
+[node name="SpawnArea" type="Node2D" parent="."]
 position = Vector2( 32.4009, -32.0056 )
 script = ExtResource( 3 )
 
-[node name="Area2D" type="Area2D" parent="SpawnArea" index="0"]
-
+[node name="Area2D" type="Area2D" parent="SpawnArea"]
 position = Vector2( 511.287, -135.668 )
 scale = Vector2( 17.6189, 4.48373 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea/Area2D" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea/Area2D"]
 position = Vector2( -0.275337, -7.02238 )
 shape = SubResource( 1 )
 
-[node name="KillArea" type="Node2D" parent="." index="3"]
-
-editor/display_folded = true
+[node name="KillArea" type="Node2D" parent="."]
 position = Vector2( 17.2217, 1957.23 )
 scale = Vector2( 1, 0.905317 )
 script = ExtResource( 4 )
 
-[node name="Conveyor" type="Area2D" parent="KillArea" index="0"]
-
+[node name="Conveyor" type="Area2D" parent="KillArea"]
 position = Vector2( 542.778, -653.75 )
 scale = Vector2( 17.6189, 1.19505 )
-input_pickable = true
 gravity_point = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 64
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea/Conveyor" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea/Conveyor"]
 position = Vector2( 3.8147e-006, -17.1534 )
 scale = Vector2( 1, 1.53904 )
 shape = SubResource( 2 )
 
-[node name="Bank" type="Area2D" parent="KillArea" index="1"]
-
+[node name="Bank" type="Area2D" parent="KillArea"]
 position = Vector2( 1118.16, -436.9 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_mask = 65
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea/Bank" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea/Bank"]
 position = Vector2( 24.6183, -46.0579 )
 rotation = 0.00947543
 shape = SubResource( 3 )
 
-[node name="Timer" type="Timer" parent="KillArea/Bank" index="1"]
-
-process_mode = 1
+[node name="Timer" type="Timer" parent="KillArea/Bank"]
 wait_time = 10.0
-one_shot = false
 autostart = true
 
-[node name="ConveyorWheels" type="Node2D" parent="." index="4"]
-
+[node name="ConveyorWheels" type="Node2D" parent="."]
 editor/display_folded = true
 position = Vector2( 40, 1380 )
 scale = Vector2( 1.25, 1 )
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="ConveyorWheels" index="0"]
-
+[node name="Sprite" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( -24, -30.3789 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite8" type="Sprite" parent="ConveyorWheels" index="1"]
-
+[node name="Sprite8" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 72, -29.9999 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite13" type="Sprite" parent="ConveyorWheels" index="2"]
-
+[node name="Sprite13" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 168, -29.9999 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite24" type="Sprite" parent="ConveyorWheels" index="3"]
-
+[node name="Sprite24" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 264, -29.9999 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite27" type="Sprite" parent="ConveyorWheels" index="4"]
-
+[node name="Sprite27" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 360, -29.9999 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite34" type="Sprite" parent="ConveyorWheels" index="5"]
-
+[node name="Sprite34" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 456, -29.9999 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite41" type="Sprite" parent="ConveyorWheels" index="6"]
-
+[node name="Sprite41" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 552, -29.9999 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite45" type="Sprite" parent="ConveyorWheels" index="7"]
-
+[node name="Sprite45" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 648, -29.9999 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite52" type="Sprite" parent="ConveyorWheels" index="8"]
-
+[node name="Sprite52" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 744, -29.9999 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite2" type="Sprite" parent="ConveyorWheels" index="9"]
-
+[node name="Sprite2" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( -8, -30 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite9" type="Sprite" parent="ConveyorWheels" index="10"]
-
+[node name="Sprite9" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 88, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite14" type="Sprite" parent="ConveyorWheels" index="11"]
-
+[node name="Sprite14" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 184, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite22" type="Sprite" parent="ConveyorWheels" index="12"]
-
+[node name="Sprite22" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 280, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite30" type="Sprite" parent="ConveyorWheels" index="13"]
-
+[node name="Sprite30" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 376, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite31" type="Sprite" parent="ConveyorWheels" index="14"]
-
+[node name="Sprite31" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 472, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite39" type="Sprite" parent="ConveyorWheels" index="15"]
-
+[node name="Sprite39" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 568, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite44" type="Sprite" parent="ConveyorWheels" index="16"]
-
+[node name="Sprite44" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 664, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite54" type="Sprite" parent="ConveyorWheels" index="17"]
-
+[node name="Sprite54" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 760, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite3" type="Sprite" parent="ConveyorWheels" index="18"]
-
+[node name="Sprite3" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 8, -30 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite12" type="Sprite" parent="ConveyorWheels" index="19"]
-
+[node name="Sprite12" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 104, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite16" type="Sprite" parent="ConveyorWheels" index="20"]
-
+[node name="Sprite16" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 200, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite19" type="Sprite" parent="ConveyorWheels" index="21"]
-
+[node name="Sprite19" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 296, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite25" type="Sprite" parent="ConveyorWheels" index="22"]
-
+[node name="Sprite25" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 392, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite36" type="Sprite" parent="ConveyorWheels" index="23"]
-
+[node name="Sprite36" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 488, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite38" type="Sprite" parent="ConveyorWheels" index="24"]
-
+[node name="Sprite38" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 584, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite43" type="Sprite" parent="ConveyorWheels" index="25"]
-
+[node name="Sprite43" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 680, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite49" type="Sprite" parent="ConveyorWheels" index="26"]
-
+[node name="Sprite49" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 776, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite4" type="Sprite" parent="ConveyorWheels" index="27"]
-
+[node name="Sprite4" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 24, -30 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite10" type="Sprite" parent="ConveyorWheels" index="28"]
-
+[node name="Sprite10" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 120, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite17" type="Sprite" parent="ConveyorWheels" index="29"]
-
+[node name="Sprite17" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 216, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite21" type="Sprite" parent="ConveyorWheels" index="30"]
-
+[node name="Sprite21" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 312, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite28" type="Sprite" parent="ConveyorWheels" index="31"]
-
+[node name="Sprite28" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 408, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite32" type="Sprite" parent="ConveyorWheels" index="32"]
-
+[node name="Sprite32" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 504, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite42" type="Sprite" parent="ConveyorWheels" index="33"]
-
+[node name="Sprite42" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 600, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite46" type="Sprite" parent="ConveyorWheels" index="34"]
-
+[node name="Sprite46" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 696, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite53" type="Sprite" parent="ConveyorWheels" index="35"]
-
+[node name="Sprite53" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 792, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite5" type="Sprite" parent="ConveyorWheels" index="36"]
-
+[node name="Sprite5" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 40, -30 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite7" type="Sprite" parent="ConveyorWheels" index="37"]
-
+[node name="Sprite7" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 136, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite18" type="Sprite" parent="ConveyorWheels" index="38"]
-
+[node name="Sprite18" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 232, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite20" type="Sprite" parent="ConveyorWheels" index="39"]
-
+[node name="Sprite20" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 328, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite26" type="Sprite" parent="ConveyorWheels" index="40"]
-
+[node name="Sprite26" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 424, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite35" type="Sprite" parent="ConveyorWheels" index="41"]
-
+[node name="Sprite35" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 520, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite40" type="Sprite" parent="ConveyorWheels" index="42"]
-
+[node name="Sprite40" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 616, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite47" type="Sprite" parent="ConveyorWheels" index="43"]
-
+[node name="Sprite47" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 712, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite6" type="Sprite" parent="ConveyorWheels" index="44"]
-
+[node name="Sprite6" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 56, -30 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite11" type="Sprite" parent="ConveyorWheels" index="45"]
-
+[node name="Sprite11" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 152, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite15" type="Sprite" parent="ConveyorWheels" index="46"]
-
+[node name="Sprite15" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 248, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite23" type="Sprite" parent="ConveyorWheels" index="47"]
-
+[node name="Sprite23" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 344, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite29" type="Sprite" parent="ConveyorWheels" index="48"]
-
+[node name="Sprite29" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 440, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite33" type="Sprite" parent="ConveyorWheels" index="49"]
-
+[node name="Sprite33" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 536, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite37" type="Sprite" parent="ConveyorWheels" index="50"]
-
+[node name="Sprite37" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 632, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite48" type="Sprite" parent="ConveyorWheels" index="51"]
-
+[node name="Sprite48" type="Sprite" parent="ConveyorWheels"]
 position = Vector2( 728, -29.621 )
 scale = Vector2( 0.5, 0.625003 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Walls" type="StaticBody2D" parent="." index="5"]
-
-input_pickable = false
+[node name="Walls" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 120
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" index="0"]
-
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
 rotation = 0.00070781
-build_mode = 0
 polygon = PoolVector2Array( -0.402039, -467.62, 1.05159, 649.604, 50.6509, 814.25, 7.36761, 971.33, 0.962622, 1360, 1040.96, 1359.26, 1215.62, 1665.38, 1202.06, 1406.12, 1200, 1320, 1200, 1120, 1040.76, 1079.26, 1080.68, 959.235, 1030.44, 795.012, 1077.78, 618.157, 1080.06, 79.2355, 1078.95, -1480.76, 838.952, -1480.59, 478.952, -1480.34, 798.584, -2000.57, 1798.58, -2001.27, 1761.36, 1918.75, 1197.51, 1943.16, -838.612, 1960.59, -800.17, -239.434, -761.415, -1999.46, -201.416, -1999.86, 278.584, -2000.2, 558.584, -2000.4, 758.584, -2000.54, 478.952, -1480.34, 238.952, -1480.17, 15.3265, -1502.64 )
 
-[node name="LBlkNde" type="Node2D" parent="." index="6" groups=[
+[node name="LBlkNde" type="Node2D" parent="." groups=[
 "Persist",
 ]]
 
-[node name="MBlkNde" type="Node2D" parent="." index="7" groups=[
+[node name="MBlkNde" type="Node2D" parent="." groups=[
 "Persist",
 ]]
 
-[node name="SBlkNde" type="Node2D" parent="." index="8" groups=[
+[node name="SBlkNde" type="Node2D" parent="." groups=[
 "Persist",
 ]]
 
-[node name="CoinsNode" type="Node2D" parent="." index="9" groups=[
+[node name="CoinsNode" type="Node2D" parent="." groups=[
 "Persist",
 ]]
 
-[node name="Ui" type="Control" parent="." index="10"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Ui" type="Control" parent="."]
 margin_top = 1120.0
 margin_right = 1082.0
 margin_bottom = 1760.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 theme = ExtResource( 7 )
 script = ExtResource( 8 )
-_sections_unfolded = [ "Rect", "Theme" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Timer" type="Timer" parent="Ui" index="0"]
-
+[node name="Timer" type="Timer" parent="Ui"]
 process_mode = 0
-wait_time = 1.0
-one_shot = false
 autostart = true
 
-[node name="Panel" type="Panel" parent="Ui" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Panel" type="Panel" parent="Ui"]
 margin_left = -3.0
 margin_top = -1117.0
 margin_right = 1077.0
 margin_bottom = -917.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_styles/panel = ExtResource( 9 )
-_sections_unfolded = [ "Rect", "custom_styles" ]
 
-[node name="Button" type="Button" parent="Ui/Panel" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Ui/Panel"]
 margin_left = 22.0
 margin_top = 15.0
 margin_right = 87.0
 margin_bottom = 84.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-flat = false
-align = 1
 
-[node name="CashLbl" type="Label" parent="Ui" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="CashLbl" type="Label" parent="Ui"]
 margin_left = 197.0
 margin_top = -1086.0
 margin_right = 341.0
 margin_bottom = -1072.0
 rect_scale = Vector2( 5, 5 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "$10110101101000101"
 align = 1
 valign = 1
 uppercase = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
 
-[node name="CpSlbd" type="Label" parent="Ui" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="CpSlbd" type="Label" parent="Ui"]
 margin_left = 341.0
 margin_top = -996.0
 margin_right = 485.0
 margin_bottom = -982.0
 rect_scale = Vector2( 3, 3 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "$10110101101000101"
 align = 1
 valign = 1
 uppercase = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Ui" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="ScrollContainer" type="ScrollContainer" parent="Ui"]
 margin_top = 245.0
 margin_right = 560.0
 margin_bottom = 457.0
 rect_min_size = Vector2( 560, 200 )
 rect_scale = Vector2( 2, 2 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 theme = ExtResource( 7 )
-scroll_horizontal_enabled = true
-scroll_horizontal = 0
 scroll_vertical_enabled = false
-scroll_vertical = 0
-scroll_deadzone = 0
-_sections_unfolded = [ "Focus", "Mouse", "Rect", "Scroll", "Size Flags", "Theme" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Ui/ScrollContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/ScrollContainer"]
 margin_right = 560.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 560, 200 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 theme = ExtResource( 7 )
-alignment = 0
-_sections_unfolded = [ "Anchor", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "custom_constants" ]
 
-[node name="PopupPanel" type="PopupPanel" parent="Ui" index="5"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="PopupPanel" type="PopupPanel" parent="Ui"]
 margin_left = 201.0
 margin_top = -725.0
 margin_right = 881.0
 margin_bottom = -165.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
 
-[node name="Label" type="Label" parent="Ui/PopupPanel" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 80.0
-margin_top = 40.0
-margin_right = 184.0
-margin_bottom = 54.0
+[node name="Label" type="Label" parent="Ui/PopupPanel"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 676.0
+margin_bottom = 556.0
 rect_scale = Vector2( 5, 5 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "Idle Earnings"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
 
-[node name="writeME" type="Label" parent="Ui/PopupPanel" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 40.0
-margin_top = 160.0
-margin_right = 211.0
-margin_bottom = 251.0
+[node name="writeME" type="Label" parent="Ui/PopupPanel"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 676.0
+margin_bottom = 556.0
 rect_scale = Vector2( 3.5, 3.5 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "Idle Earnings"
 align = 1
 valign = 1
 autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
 
-[node name="writeME2" type="Label" parent="Ui/PopupPanel" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 40.0
-margin_top = 480.0
-margin_right = 240.0
-margin_bottom = 494.0
+[node name="writeME2" type="Label" parent="Ui/PopupPanel"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 676.0
+margin_bottom = 556.0
 rect_scale = Vector2( 3, 3 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "Click Anywhere To Close"
 align = 1
 valign = 1
 autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
-
 [connection signal="body_exited" from="SpawnArea/Area2D" to="SpawnArea" method="_on_Area2D_body_exited"]
-
 [connection signal="body_entered" from="KillArea/Conveyor" to="KillArea" method="_on_Area2D_body_entered"]
-
 [connection signal="body_entered" from="KillArea/Bank" to="KillArea" method="_on_Bank_body_entered"]
-
 [connection signal="timeout" from="KillArea/Bank/Timer" to="KillArea" method="_on_Timer_timeout"]
-
 [connection signal="timeout" from="Ui/Timer" to="Ui" method="_on_Timer_timeout"]
-
 [connection signal="pressed" from="Ui/Panel/Button" to="Ui" method="_on_Button_pressed"]
 
-
 [editable path="Wheel"]
+
 [editable path="Wheel2"]
